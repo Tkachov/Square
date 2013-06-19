@@ -80,7 +80,7 @@ It contains functions:
   Returns a string that was read from given input stream. If string in this stream starts with " symbol, then function reads the whole string between two " symbols. Otherwise any space character will be treaten as string's end.
 
  string thousands(int n)
-  Returns a string that represents %n%. Thousands will be written as "K" (for example, 5000 will become "5K").
+  Returns a string that represents %n%. Thousands will be written as “K” (for example, 5000 will become "5K").
 
  int toint(string)
   Parses an integer that is written in string and returns an integer. Skips non-digits characters (except '+' and '-' before the actual number).
@@ -92,4 +92,4 @@ It contains functions:
   Returns whether strings %a% and %b% are equal or not. Considers lower-case and upper-case letters as same ("FATE", "fate" and "FaTe" are equal strings).
 
  stack<int> A_star(int fx, int fy, int tx, int ty, vector< vector<bool> >& obstacles, int usualcost = 10, int diagcost = 14)
-  Implements A* algorithm. Returns a stack of indeces that forms a path between (%fx%, %fy%) and (%tx%, %ty%). If there is no way, returns an empty stack. %obstacles% should contain true if the point is impassable, %usualcost% and %diagcost% represent which moves are "cheaper".
+  Implements A* algorithm. Returns a stack of indeces that forms a path between (%fx%, %fy%) and (%tx%, %ty%). If there is no way, returns an empty stack. %obstacles% should contain true if the point is impassable, %usualcost% and %diagcost% represent which moves are “cheaper”.

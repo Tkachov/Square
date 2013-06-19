@@ -104,7 +104,7 @@ Returns a string that was read from given input stream. If string in this stream
 
 ----
 ##### `string thousands(int n)`
-Returns a string that represents **n**. Thousands will be written as "K" (for example, 5000 will become "5K").  
+Returns a string that represents **n**. Thousands will be written as “K” (for example, 5000 will become "5K").  
 
 ----
 ##### `int toint(string)`
@@ -120,7 +120,7 @@ Returns whether strings **a** and **b** are equal or not. Considers lower-case a
 
 ----
 ##### `stack<int> A_star(int fx, int fy, int tx, int ty, vector< vector<bool> >& obstacles, int u = 10, int d = 14)`
-Implements A* algorithm. Returns a **stack** of indeces that forms a path between **(fx, fy)** and **(tx, ty)**. If there is no way, returns an empty **stack**. **obstacles** should contain **true** if the point is impassable, **u** and **d** represent which moves are "cheaper" (horizontal and vertical cost **u** and diagonal cost **d**).  
+Implements A* algorithm. Returns a **stack** of indeces that forms a path between **(fx, fy)** and **(tx, ty)**. If there is no way, returns an empty **stack**. **obstacles** should contain **true** if the point is impassable, **u** and **d** represent which moves are “cheaper” (horizontal and vertical cost **u** and diagonal cost **d**).  
    
    
 **Previous file:** [debug.h file](19_debug_h.md)  

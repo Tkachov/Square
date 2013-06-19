@@ -22,7 +22,7 @@ There are also some engine classes you can find useful:
 * [Input](08_Input.md), that handles user's input and provides an information about it;
 * [Loader](09_Loader.md), that loads different kinds of resources and storages it;
 * [Logger](10_Logger.md), that writes messages to log files and console;
-* [State](11_State.md), the container of global (or "persistent") variables of any type.
+* [State](11_State.md), the container of global (or “persistent”) variables of any type.
 
 The [debug.h](19_debug_h.md) file contains constants for debug mode. They have no effect when you build your application in Release configuration, and can be used for easier development & debugging.
 

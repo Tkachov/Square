@@ -4,7 +4,7 @@ Square is a simple system which is based on SDL+OpenGL libraries.
 It includes the base classes and some primitive classes that are derived from the base ones.
 There are two general components: Screens and Objects. Screens are containers for Objects. Objects are everything that can be drawn and interacted with. You can switch from one Screen to another. So, menus and levels are Screens and buttons and characters are Objects. All you have to do is to implement necessary Objects and put them in necessary Screens.
 
-[Go to documentation](02_docs/md/en/00_Contents.md).
+[Go to documentation](02_docs/md/en/00_Contents.md). ([Russian](02_docs/md/ru/00_Contents.md) available.)
 
 ## Repository contents
 

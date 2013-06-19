@@ -6,11 +6,11 @@ Input class handles user's input each time Game object is asking it to. Screen o
 
 You can determine whether the keys or mouse are pressed, hold or released in this moment. You can also get mouse pointer position. You can also check if user pressed close button, Alt+F4 or trying to kill process using Task Manager.
 
-Furthermore, you can "eat" keys' and mouse's states. For example, the left mouse button was pressed. If you'll check if left mouse button was pressed, you'll get true. After you "eat" this state and check if mouse button was pressed again, you'll get false. This can be used to prevent one press like a few (for example, if Escape key closes the windows one by one, it will close all of them if you will not "eat" this event).
+Furthermore, you can “eat” keys' and mouse's states. For example, the left mouse button was pressed. If you'll check if left mouse button was pressed, you'll get true. After you “eat” this state and check if mouse button was pressed again, you'll get false. This can be used to prevent one press like a few (for example, if Escape key closes the windows one by one, it will close all of them if you will not “eat” this event).
 
-You can also check if state was "eaten".
+You can also check if state was “eaten”.
 
-Also, you can "pause" and "unpause" the object. It does not changes it's behaviour, but you can make a system where some objects are not reacting to user's actions because of the reasons you need (for example, the hero should not move while the game is paused, but the pause menu should react to user's actions).
+Also, you can “pause” and “unpause” the object. It does not changes it's behaviour, but you can make a system where some objects are not reacting to user's actions because of the reasons you need (for example, the hero should not move while the game is paused, but the pause menu should react to user's actions).
 
 Pause is saved between update() calls, but the other states are not. So, if you have eaten a key event in one update() call, it will not be eaten in next one (if you won't eat it again).
 

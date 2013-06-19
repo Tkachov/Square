@@ -2,7 +2,7 @@
 
 == Overview
 
-State class is used to storage global (or "persistent") variables' values. State objects can be saved into a file or be loaded from it. To determine the type of saved object this class uses a char values that corresponds to some type or class. For example, 'i' corresponds to int type and 's' — to string class. If you storage other classes in State, you should add functions in state.h or these variables won't be saved into file. 
+State class is used to storage global (or “persistent”) variables' values. State objects can be saved into a file or be loaded from it. To determine the type of saved object this class uses a char values that corresponds to some type or class. For example, 'i' corresponds to int type and 's' — to string class. If you storage other classes in State, you should add functions in state.h or these variables won't be saved into file. 
 
 Every variable have two keys to access it. So, the value for {"a","key"} key pair is not equal to {"b","key"} key pair value. Any type can be storaged as value and you can change value's type if you want (i.e. you can replace {"a","key"} int value with string value).
 
@@ -24,7 +24,7 @@ State object is kept in Game object, but a pointer to it is passed to Screen obj
   static char get_type(int*) { return 'i'; }
   static char get_type(string*) { return 's'; }
    Returns char that corresponds to the given type.
-  ('U' corresponds "Unknown type", 'i' — int, 's' — string. You have to override function if you need other types.)
+  ('U' corresponds “Unknown type”, 'i' — int, 's' — string. You have to override function if you need other types.)
 
   void save_value(int*, ofstream&)
   void save_value(string*, ofstream&)

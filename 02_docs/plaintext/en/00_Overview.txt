@@ -22,7 +22,7 @@ There are also some engine classes you can find useful:
 	- Input, that handles user's input and provides an information about it;
 	- Loader, that loads different kinds of resources and storages it;
 	- Logger, that writes messages to log files and console;
-	- State, the container of global (or "persistent") variables of any type.
+	- State, the container of global (or “persistent”) variables of any type.
 
 The debug.h file contains constants for debug mode. They have no effect when you build your application in Release configuration, and can be used for easier development & debugging.
 

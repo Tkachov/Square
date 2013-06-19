@@ -50,7 +50,7 @@ Frees every SDL's bitmap surface, OpenGL texture and font resource that is stora
 
 First line of file contains two integers: **frames** and **animspeed**.  
 Other **frames** lines contains a string and two integers each: **filename x y**.  
-**animspeed** is the interval between two sprite's frames (counted in screen redrawing frames), **filename** is the name of file that contains a frame and **x** and **y** are offsets by X and Y axises for this frame.  
+**animspeed** is the interval between two sprite's frames (counted in screen redrawing frames), **filename** is the name of file that contains a frame and **x** and **y** are offsets by X and Y axes for this frame.  
    
    
 **Previous file:** [Input class](08_Input.md)  

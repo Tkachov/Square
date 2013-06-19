@@ -5,10 +5,10 @@
 Button class is used to create buttons. It inherits [Object](04_Object.md) class.  
 When the button is pressed, it calls a function that is passed by a pointer to [functor](06_Using_functors.md) class.  
 There are four button states:
-* "up", which means the pointer is outside of the button;
-* "over", which means the pointer is on the button;
-* "pressed", which means the pointer is on the button and the mouse button is pressed or being hold;
-* "disabled", which means the button doesn't react to user's actions.
+* “up”, which means the pointer is outside of the button;
+* “over”, which means the pointer is on the button;
+* “pressed”, which means the pointer is on the button and the mouse button is pressed or being hold;
+* “disabled”, which means the button doesn't react to user's actions.
 
 Every state can have its' own [Sprite](13_Sprite.md) object.
 
@@ -42,23 +42,23 @@ Updates its' state and calls a function if mouse was pressed.
 
 ----
 ##### `void set_up_state(Sprite)`
-Sets a Sprite object for "up" state.  
+Sets a Sprite object for “up” state.  
 
 ----
 ##### `void set_over_state(Sprite)`
-Sets a Sprite object for "over" state.  
+Sets a Sprite object for “over” state.  
 
 ----
 ##### `void set_pressed_state(Sprite)`
-Sets a Sprite object for "pressed" state.  
+Sets a Sprite object for “pressed” state.  
 
 ----
 ##### `void set_disabled_state(Sprite)`
-Sets a Sprite object for "disabled" state.  
+Sets a Sprite object for “disabled” state.  
 
 ----
 ##### `void set_states(Sprite up, Sprite over, Sprite pressed, Sprite disabled)`
-Sets a Sprite objects for "up", "over", "pressed" and "disabled" states.  
+Sets a Sprite objects for “up”, “over”, “pressed” and “disabled” states.  
 
 ----
 ##### `void set_font(TTF_Font*)`
@@ -82,14 +82,14 @@ Sets a pointer to functor object.
 
 ----
 ##### `void set_pixel_perfect(bool)`
-Sets "pixel perfect" option.  
+Sets “pixel perfect” option.  
 If **true**, button will check whether mouse pointer is on non-transparent area of state's sprite or not.  
 Otherwise, button will check whether mouse position is inside button's borders rectangle or not (which is simpler).  
 
 ----
 ##### `void set_disabled(bool)`
 Sets whether button is disabled or not. (disabled is **true**, enabled is **false**)  
-If button is disabled, it will have "disabled" state and won't react to user's actions.  
+If button is disabled, it will have “disabled” state and won't react to user's actions.  
 
 ----
 ##### `void set_holding_click_delay(int delay)`

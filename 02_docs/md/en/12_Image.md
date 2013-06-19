@@ -15,7 +15,7 @@ Draws the texture this object contains with offset by X and Y axes.
 
 ----
 ##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
-If mouse pointer is on the texture and intersects it, then "eats" mouse move event. If **this.eat_click** is **true**, "eats" mouse click event too.  
+If mouse pointer is on the texture and intersects it, then “eats” mouse move event. If **this.eat_click** is **true**, “eats” mouse click event too.  
 
 ----
 ##### `GLuint* const img()`
