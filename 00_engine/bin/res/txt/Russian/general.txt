@@ -1,0 +1,18 @@
+﻿//
+//    COMMON
+//
+OK		=	ОК
+Cancel		=	Отмена
+Yes		=	Да
+No		=	Нет
+
+//
+//    MAIN MENU
+//
+
+exit_game	=	Выйти из игры
+
+
+
+
+

@@ -1,0 +1,35 @@
+=== debug.h file
+
+== Overview
+
+debug.h is a file that contains all #define directives that control debug features. In Release configuration this file is not included, so all debug features become disabled.
+
+== #defines
+
+ DBG_SHOW_SOFTWARE_CURSOR  
+  [string] filename of software cursor, that will be drawn on game screen (if framerate is low, it will move slow).
+  If not defined, usual SDL black&white cursor is used.
+
+ DBG_SHOW_HARDWARE_CURSOR
+  [string] filename of hardware cursor (*.cur), that replaces system cursor (sometimes can blink or be replaced with default system cursor).
+  If not defined, usual SDL black&white cursor is used.
+
+ DBG_PRINT_WARNINGS
+  If defined, warnings will be written in log files.
+
+ DBG_PRINT_SPRITE_LOADING
+  If defined, sprite loading will be logged.
+ (Look Loader::load_sprite() function.)
+
+ DBG_PRINT_IMAGE_LOADING
+  If defined, image loading will be logged.
+ (Look Loader::load_image() and Loader::load_texture() functions.)
+
+ DBG_PRINT_STRING_TABLES
+  If defined, string tables will be printed out after loading.
+ (Look String_Table::push_table() function.)
+
+ DBG_STOP_ON_UNALLOCATED_VARIABLE
+  If defined, accessing unallocated variable will stop the game.
+  Otherwise, pointer to unallocated variable will be 0.
+ (Look State::persistent() function.)

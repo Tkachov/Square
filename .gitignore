@@ -1,0 +1,13 @@
+#ignore engine bin, obj and CB-specific
+00_engine/bin/*.exe
+00_engine/bin/*.dll
+00_engine/obj/
+00_engine/src/*.depend
+00_engine/src/*.layout
+
+#ignore examples bin, obj and CB-specific too
+01_examples/*/bin/*.exe
+01_examples/*/bin/*.dll
+01_examples/*/obj/
+01_examples/*/src/*.depend
+01_examples/*/src/*.layout

@@ -1,0 +1,3 @@
+﻿
+language	=	English
+

@@ -1,0 +1,13 @@
+﻿//
+//    COMMON
+//
+OK		=	OK
+Cancel		=	Cancel
+Yes		=	Yes
+No		=	No
+
+//
+//    MAIN MENU
+//
+
+exit_game	=	Leave game

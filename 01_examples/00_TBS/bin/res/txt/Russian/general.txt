@@ -1,0 +1,68 @@
+﻿//
+//    COMMON
+//
+OK		=	ОК
+Cancel		=	Отмена
+Yes		=	Да
+No		=	Нет
+
+//
+//    MAIN MENU
+//
+
+mm_new_game	=	НОВАЯ ИГРА
+mm_load_game	=	ЗАГРУЗИТЬ ИГРУ
+mm_options	=	НАСТРОЙКИ
+mm_exit_game	=	ВЫЙТИ ИЗ ИГРЫ
+
+mm_return	=	Вернуться в меню
+
+//loading menu
+loadbox_no_saves_found	=	Сохранений не найдено.
+loadbox_delete		=	Удалить
+loadbox_load		=	Загрузить
+loadbox_save		=	Сохранить
+loadbox_cancel		=	@Cancel
+loadbox_heroinfo	=	%0%, уровень %1%
+loadbox_heroinfo_nolvl	=	%0%
+loadbox_rewrite		=	Сохранение %0% существует. Хотите его перезаписать?
+
+//options menu
+mm_opt_language	=	Язык
+lngRussian	=	Русский
+lngEnglish	=	Английский
+mm_opt_relaunch	=	Применить изменения после перезапуска игры.	
+mm_opt_rightnow	=	Применить изменения сразу же.
+mm_opt_apply	=	Применить
+mm_opt_cancel	=	@Cancel
+
+//
+//    PAUSE MENU
+//
+
+pm_continue	=	Вернуться в игру
+pm_save_game	=	Сохранить игру
+pm_load_game	=	Загрузить игру
+pm_options	=	Настройки
+pm_to_main_menu	=	Выйти в главное меню
+pm_exit_game	=	Выйти из игры
+
+//
+//    INTERFACE
+//
+
+//adventure mode
+adv_menu	=	Меню
+
+//
+//    MESSAGES
+//
+
+msg_portal_is_unavailable	=	Простите, но данный портал в данный момент недоступен. Попробуйте воспользоваться им позже.
+msg_loc_file	=	Это сообщение записано в файле локализации. Следующий знак тоже ищет сообщение в файле локализации, но сообщение будет пустым, т.к. в файле локализации сообщений с подходящим ключом нет.
+
+
+
+
+
+
