@@ -10,7 +10,7 @@ Windows are pausing input and unpausing it to update its' own and its' children 
 
 As Screen object, Window can (and should) override load() function. Window class also provides another virtual function:
 
- virtual void disappear()
+ void disappear()
   This function destroys the object and removes it from Screen's queue.
 
 You also can override usual Object class virtual functions to make an unique window. Don't forget that you should both handle the input and notify child Objects to handle it.
@@ -20,14 +20,17 @@ You also can override usual Object class virtual functions to make an unique win
   Window(Game* game, Loader* loader, int x, int y, int priority = 0)
    Constuctor, passes %game% and %loader% to Screen constructor and position and %priority% parameters to Object constructor.
 
-  virtual void update() [inherited from Screen]
+  void update() [inherited from Screen]
    Updates Objects queue.
    
-  virtual void redraw() [inherited from Screen]
+  void redraw() [inherited from Screen]
    Does nothing.
 
-  virtual void update(Input*) [inherited from Object]
-   Remembers current input pointer and calls void update().
-
-  virtual void draw(SDL_Surface*) [inherited from Object]
+  void draw() [inherited from Object]
    Draws Objects queue on the screen.
+
+  void draw(int x, int y) [inherited from Object]
+   Draws Objects queue on the screen in given point.  
+
+  void update(Input*) [inherited from Object]
+   Remembers current input pointer and calls void update().

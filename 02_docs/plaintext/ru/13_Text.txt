@@ -13,13 +13,13 @@
  Text(TTF_Font* font, string text = "", int width = 0, SDL_Color color = SDL_Color(), int x = 0, int y = 0, int priority = 0)
   Конструтор, требующий указатель на шрифт и также принимающий текст по умолчанию, ширину надписи, её цвет, координаты и приоритет.
 
- virtual void draw(SDL_Surface*) [наследуется из Object]
+ void draw() [наследуется из Object]
   Отрисовывает текст на экране.
 
- virtual void draw(int,int,SDL_Surface*) [наследуется из Object]
-  Отрисовывает текст на экране со сдвигом по осям X и Y.
+ void draw(int x, int y) [наследуется из Object]
+  Отрисовывает текст на экране в заданной точке.
 
- virtual void update(Input*) [наследуется из Object]
+ void update(Input*) [наследуется из Object]
   Ничего не делает.
 
  string const text()

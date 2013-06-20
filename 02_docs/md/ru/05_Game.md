@@ -28,6 +28,7 @@
 ##### `void open_screen(ScreenID sid, bool reload = false)`
 Открывает Screen, которому соответствует переданный ScreenID **sid**.  
 Перезагружает Screen (то есть создаёт новый экземпляр объекта), если параметр **reload** равен **true**.  
+Эта функция сработает только если вы добавили свой класс, наследующий класс Screen, в функцию **[create_screen(ScreenID)](05_Game.md#screenid)**!
 
 ----
 ##### `void open_screen(Screen* screen)`
@@ -75,9 +76,15 @@
 ##### `void set_option(string key, string value)`
 Заменяет значение настройки с переданным именем **key** на переданное значение **value**.
 
+## ScreenID
+
+Файл game.h содержит объявление перечисления ScreenID и константы **SCREENID_DEFAULT**.  
+В классе Game также содержится приватную функцию **create_screen(ScreenID)**, в которой находится switch, перебирающий значения ScreenID и создающий соответствующие классы-наследники Screen.  
+Когда вы наследуете класс Screen, вам следует также добавить значение в перечисление ScreenID, включить заголовочный файл вашего класса в файл game.cpp и изменить функцию.  
+В противном случае функция **[open_screen(ScreenID, bool)](05_Game.md#void-open_screenscreenid-sid-bool-reload-false)** не сможет создавать объекты вашего класса (хотя вы всё равно можете использовать функцию **[open_screen(Screen*)](05_Game.md#void-open_screenscreen-screen)**).
+
 ## Прочее
 
-В файле game.h объявлено перечисление ScreenID и константа **SCREENID_DEFAULT**.  
 Объект Game содержит единственные экземпляры SDL_Surface окна, и объектов Loader, Input и State (указатели на них передаются в объекты класса Screen). Он также содержит настройки в объекте класса String_Table и указатель на открытый в данный момент объект Screen.  
    
    

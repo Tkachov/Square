@@ -2,8 +2,8 @@
 #include "..\Engine\Data\string_table.h"
 
 //{ creating&destructing screen
-First_Screen::First_Screen(Game* gm, SDL_Surface* surf, Loader* ld, Input* in):
- Screen(gm,surf,ld,in), enabled(true) { load(); };
+First_Screen::First_Screen(Game* gm, Loader* ld, Input* in):
+ Screen(gm,ld,in), enabled(true) { load(); };
 
 void First_Screen::load() {
  ///placing objects

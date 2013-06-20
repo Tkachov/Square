@@ -20,16 +20,8 @@ public:
  virtual ~Object() {};
 
  virtual void update(Input*) = 0;
- virtual void draw(SDL_Surface*) = 0;
- virtual void draw(int sx, int sy, SDL_Surface* s) {
-  int px = _x;
-  int py = _y;
-  _x=sx;
-  _y=sy;
-  draw(s);
-  _x=px;
-  _y=py;
- }
+ virtual void draw() { draw(_x, _y); }
+ virtual void draw(int, int) = 0;
 
  int x() { return _x; }
  int y() { return _y; }

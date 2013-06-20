@@ -216,7 +216,7 @@ void Game::open_screen(ScreenID sid, bool recreate) {
 }
 Screen* Game::create_screen(ScreenID sid) {
  switch(sid) {
-  case s_FIRST_SCREEN: return new First_Screen(this, surface, &loader, &input); break;
+  case s_FIRST_SCREEN: return new First_Screen(this, &loader, &input); break;
  }
  return 0;
 }

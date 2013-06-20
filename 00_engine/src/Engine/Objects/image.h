@@ -21,8 +21,7 @@ class Image: public Object
   Image(GLuint*,SDL_Surface*,int,int,int,int,int = 0,int = 0,int = 0);
   virtual ~Image() {};
 
-  void draw(SDL_Surface*);
-  void draw(int, int, SDL_Surface*);
+  void draw(int, int);
   void update(Input*);
 
   GLuint* const img() { return image; };

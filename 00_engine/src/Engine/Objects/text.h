@@ -35,8 +35,7 @@ public:
  virtual ~Text();
 
  virtual void update(Input*) {};
- virtual void draw(SDL_Surface*);
- virtual void draw(int,int,SDL_Surface*);
+ virtual void draw(int, int);
 
  string const text() { return _text; }
  Image* const img() { return _image; };

@@ -14,15 +14,15 @@ If label's width is 0 or is negative, text won't have limited width. Otherwise t
 Constructor, that requires a font and can also get default text, label's width, color, position and priority.  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [inherited from [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [inherited from [Object](04_Object.md#void-draw)]
 Draws the text on the screen.  
 
 ----
-##### `virtual void draw(int,int,SDL_Surface*)` [inherited from [Object](04_Object.md#virtual-void-drawint-x-int-y-sdl_surface)]
-Draws the text on the screen with given offset by X and Y axes.  
+##### `void draw(int x, int y)` [inherited from [Object](04_Object.md#void-drawint-x-int-y)]
+Draws the text on the screen in given point.  
 
 ----
-##### `virtual void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
 Does nothing.  
 
 ----

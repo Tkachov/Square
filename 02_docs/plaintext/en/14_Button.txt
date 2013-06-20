@@ -31,10 +31,13 @@ Button is an Object object, so its' update() and draw() functions can (and shoul
  Button(functor* = 0)
   Constructor, can take a pointer to functor which will be used when button is pressed.
 
- virtual void draw(SDL_Surface*) [inherited from Object]
+ void draw() [inherited from Object]
   Draws itself on the screen.
 
- virtual void update(Input*) [inherited from Object]
+ void draw(int x, int y) [inherited from Object]
+  Draws itself on the screen.
+
+ void update(Input*) [inherited from Object]
   Updates its' state and calls a function if mouse was pressed.
 
  void set_up_state(Sprite)

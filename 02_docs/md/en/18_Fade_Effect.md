@@ -20,11 +20,15 @@ There are **Fade_Mode** enum, which has the following values:
 Constructor, creates new Fade_Effect with given **mode** that will last **delay** frames and call **func** after fade effect is complete. It also gets position and **priority** for Object constructor.  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [inherited from [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [inherited from [Object](04_Object.md#void-draw)]
 Draws the effect on the screen.  
 
 ----
-##### `virtual void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
+##### `void draw(int x, int y)` [inherited from [Object](04_Object.md#void-drawint-x-int-y)]
+Draws the effect on the screen in given point.  
+
+----
+##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
 Updates the state.  
 
 ----

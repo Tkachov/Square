@@ -78,9 +78,9 @@ void Button::set_holding_click_delay(int v) { holding_clicks_delay = v; }
 
 void Button::redraw() { update_label(); };
 
-void Button::draw(SDL_Surface* s) {
- states[current_state].draw(_x,_y,s);
- label.draw(_x+label.x(),_y+label.y(),s);
+void Button::draw(int x, int y) {
+ states[current_state].draw(x,y);
+ label.draw(x+label.x(),y+label.y());
 }
 
 } }

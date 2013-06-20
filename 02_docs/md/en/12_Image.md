@@ -6,12 +6,12 @@ Image class is used by engine to storage textures (and corresponding bitmaps). I
 
 ## Functions  
 
-##### `void draw(SDL_Surface*)` [inherited from [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [inherited from [Object](04_Object.md#void-draw)]
 Draws the texture this object contains.  
 
 ----
-##### `void draw(int x, int y, SDL_Surface*)` [inherited from [Object](04_Object.md#virtual-void-drawint-x-int-y-sdl_surface)]
-Draws the texture this object contains with offset by X and Y axes.  
+##### `void draw(int x, int y)` [inherited from [Object](04_Object.md#void-drawint-x-int-y)]
+Draws the texture this object contains in given point.  
 
 ----
 ##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]

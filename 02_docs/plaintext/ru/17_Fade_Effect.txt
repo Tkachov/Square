@@ -19,10 +19,13 @@ m_FADE_IN и m_FADE_OUT используются для эффектов с цв
  Fade_Effect(Fade_Mode mode, int delay, functor* func = 0, int x = 0, int y = 0, int priority = 0)
   Конструктор, создаёт новый Fade_Effect с заданным режимом %mode%, который продлится %delay% кадров и вызовет функцию %func% после завершения эффекта. Функция также принимает координаты и приоритет для конструктора Object.
 
- virtual void draw(SDL_Surface*) [наследуется из Object]
+ void draw() [наследуется из Object]
   Отрисовывает эффект на экране.
 
- virtual void update(Input*) [наследуется из Object]
+ void draw(int x, int y) [наследуется из Object]
+  Отрисовывает эффект на экране в заданной точке.
+
+ void update(Input*) [наследуется из Object]
   Обновляет состояние.
 
  void color_mode(int r, int g, int b, int w, int h)
