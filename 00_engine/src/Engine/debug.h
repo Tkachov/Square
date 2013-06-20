@@ -11,8 +11,6 @@
 //#define DBG_PRINT_SPRITE_LOADING
 //#define DBG_PRINT_IMAGE_LOADING
 //#define DBG_PRINT_STRING_TABLES
-#include <iostream>
-using std::cout;
 
 //throw exceptions on
 #define DBG_STOP_ON_UNALLOCATED_VARIABLE

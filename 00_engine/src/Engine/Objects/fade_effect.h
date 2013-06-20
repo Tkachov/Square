@@ -33,7 +33,7 @@ class Fade_Effect: public Object
   virtual ~Fade_Effect();
 
   virtual void update(Input*);
-  virtual void draw(SDL_Surface*);
+  virtual void draw(int, int);
 
   void color_mode(int r, int g, int b, int w, int h);
   void image_mode();

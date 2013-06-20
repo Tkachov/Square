@@ -6,11 +6,11 @@ Image class is used by engine to storage textures (and corresponding bitmaps). I
 
 == Functions
 
- void draw(SDL_Surface*) [inherited from Object]
+ void draw() [inherited from Object]
   Draws the texture this object contains.
 
- void draw(int x, int y, SDL_Surface*) [inherited from Object]
-  Draws the texture this object contains with offset by X and Y axises.
+ void draw(int x, int y) [inherited from Object]
+  Draws the texture this object contains in given point.
 
  void update(Input*) [inherited from Object]
   If mouse pointer is on the texture and intersects it, then “eats” mouse move event. If %this.eat_click% is true, “eats” mouse click event too.

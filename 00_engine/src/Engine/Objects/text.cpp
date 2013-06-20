@@ -175,16 +175,10 @@ SDL_Surface* Text::draw_text(string txt, TTF_Font* fnt, SDL_Color clr, bool aa) 
 
 /*PUBLIC METHODS*/
 
-void Text::draw(SDL_Surface* surface) {
+void Text::draw(int x, int y) {
  if(_image==0) redraw();
  if(_image==0) return;
- _image->draw(_x,_y,surface);
-}
-
-void Text::draw(int x, int y, SDL_Surface* surface) {
- if(_image==0) redraw();
- if(_image==0) return;
- _image->draw(x,y,surface);
+ _image->draw(x,y);
 }
 
 /*SETTERS*/

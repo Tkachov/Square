@@ -28,6 +28,7 @@ Stops the application loop.
 ##### `void open_screen(ScreenID sid, bool reload = false)`
 Opens Screen with ScreenID **sid**.  
 Reloads the Screen (which means creating a new instance) if **reload** is **true**.  
+This function works only if you have added your Screen-deriving class in **[create_screen(ScreenID)](05_Game.md#screenid)** function!  
 
 ----
 ##### `void open_screen(Screen* screen)`
@@ -74,9 +75,15 @@ Returns value for option with name **key**.
 ##### `void set_option(string key, string value)`
 Replaces option's with name **key** value with **value**.
 
+## ScreenID
+
+game.h file contains ScreenID enum and **SCREENID_DEFAULT** contant definitions.  
+Game class also contains a private function **create_screen(ScreenID)**, which contains switch of ScreenID values and creates corresponding Screen classes.  
+When you derive Screen class, you should also add new ScreenID value into enumeration, include your class' header file into game.cpp and edit the function.  
+Otherwise, function **[open_screen(ScreenID, bool)](05_Game.md#void-open_screenscreenid-sid-bool-reload-false)** will not be able to create your class' objects (you still can use **[open_screen(Screen*)](05_Game.md#void-open_screenscreen-screen)** though).  
+
 ## Other stuff
 
-game.h — this is where ScreenID enum and **SCREENID_DEFAULT** constant are defined.  
 Game object contains the only instances of the main window surface, Loader, Input and State (pointers to these are passed to Screen objects). It also contains options in String_Table object and a pointer to current Screen object.  
    
    

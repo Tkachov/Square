@@ -19,7 +19,7 @@ public:
  Timer(int time, int repeats, functor* f): _timer(0), _limit(time), _count(repeats), _time(0), fnc(f) {};
  virtual ~Timer() {};
 
- virtual void draw(SDL_Surface*) {};
+ virtual void draw(int, int) {};
  virtual void update(Input*) {
   if(_time == _count && _count!=0) return;
   if(_timer==_limit) {

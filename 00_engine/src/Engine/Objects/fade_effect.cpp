@@ -14,7 +14,7 @@ void Fade_Effect::update(Input*) {
  ++counter;
 }
 
-void Fade_Effect::draw(SDL_Surface* s) {
+void Fade_Effect::draw(int x, int y) {
  float alpha = float(counter)/float(limit);
  if(counter>limit) alpha=1.0;
  if(mode==m_FADE_OUT||mode==m_IMAGE_OUT) alpha=1.0-alpha; //invert
@@ -22,14 +22,13 @@ void Fade_Effect::draw(SDL_Surface* s) {
   glColor4f(float(r)/255.0, float(g)/255.0, float(b)/255.0, alpha);
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  //glRecti(_x,_y+h,_x+w,_y);//,w,_y-1);
-  draw_rectangle(_x,_y,w,h);
+  draw_rectangle(x,y,w,h);
  } else {
   Image tex = img.current_image();
   if(tex.img()==0) return;
   glColor4f(1.0, 1.0, 1.0, alpha);
   glBindTexture(GL_TEXTURE_2D,*tex.img());
-  draw_texture(tex.pw(),tex.ph(),0,0,tex.w(),tex.h(),_x+tex.x(),_y+tex.y(),tex.w(),tex.h(),0,false);
+  draw_texture(tex.pw(),tex.ph(),0,0,tex.w(),tex.h(),x+tex.x(),y+tex.y(),tex.w(),tex.h(),0,false);
  }
 }
 

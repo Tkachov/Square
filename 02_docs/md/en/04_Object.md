@@ -14,20 +14,20 @@ Object have pure virtual functions, so it can't be constructed. If you derive Ob
 
 Following functions can be overriden in Object class:
 
-##### `void update(Input*)`
-This function is called by Screen object. The passed pointer can be used to get current input state and react if necessary.  
-Object class' **update()** is pure virtual function.  
+##### `void draw()`
+This function is called by Screen object. The Object should draw itself.  
+(If you are using primitive Object classes inside your Object class, you'll need them to draw. Pass the pointer into their **draw()** function and they'll do the work.)  
+Object class' **draw()** passes current x- and y-position to the function **void draw(int x, int y)**.  
 
 ----
-##### `void draw(SDL_Surface*)`
-This function is called by Screen object. The Object should draw itself on given SDL_Surface.  
-(If you are using primitive Object classes inside your Object class, you'll need them to draw. Pass the pointer into their **draw()** function and they'll do the work. If you are not using these classes, then you'll have to learn how to draw on SDL_Surfaces.)  
+##### `void draw(int x, int y)`
+This function is called by Screen object. The Object should draw itself in given position.  
 Object class' **draw()** is pure virtual function.  
 
 ----
-##### `virtual void draw(int x, int y, SDL_Surface*)`
-This function should draw the Object itself on given SDL_Surface with given offset by X and Y axes.  
-Object class' **draw()** changes coordinates to given and draws itself with previous function. Then it changes coordinates back.
+##### `void update(Input*)`
+This function is called by Screen object. The passed pointer can be used to get current input state and react if necessary.  
+Object class' **update()** is pure virtual function.
 
 ## Object class' functions
 

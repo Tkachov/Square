@@ -5,10 +5,6 @@
   #include <GL/gl.h>
   #include <GL/glu.h>
 #include "game.h"
-#include "state.h"
-#include "loader.h"
-  #include "input.h"
-  #include "utils.h"
 #include "functor.h"
 #include "Objects\object.h"
 #include <vector>
@@ -40,7 +36,6 @@ class Screen
   Game* game;
   Loader* loader;
   Input* input;
-  SDL_Surface* surface;
   opqueue objects;
   bool _is_static;
 
@@ -54,7 +49,7 @@ class Screen
   void draw_queue(int,int);
 
  public:
-  Screen(Game* gm, SDL_Surface* surf, Loader* ld, Input* input, bool st = false);
+  Screen(Game* gm, Loader* ld, Input* input, bool st = false);
   virtual ~Screen();
   virtual void start(); //called each time screen is opened
   virtual void update();

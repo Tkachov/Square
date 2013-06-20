@@ -20,11 +20,15 @@
 Конструктор, создаёт новый Fade_Effect с заданным режимом **mode**, который продлится **delay** кадров и вызовет функцию **func** после завершения эффекта. Функция также принимает координаты и приоритет для конструктора Object.  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [наследуется из [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [наследуется из [Object](04_Object.md#void-draw)]
 Отрисовывает эффект на экране.  
 
 ----
-##### `virtual void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-draw)]
+Отрисовывает эффект на экране в заданной точке.  
+
+----
+##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
 Обновляет состояние.  
 
 ----
