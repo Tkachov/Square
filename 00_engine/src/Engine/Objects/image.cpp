@@ -5,11 +5,7 @@ namespace Engine { namespace Objects {
 
 Image::Image(GLuint* img, SDL_Surface* bmp, int w, int h, int nw, int nh, int x, int y, int pr): Object(x,y,pr), image(img), bitmap(bmp), _w(w), _h(h), tw(nw), th(nh) {};
 
-void Image::draw(SDL_Surface* screen) {
- draw(_x,_y,screen);
-}
-
-void Image::draw(int x, int y, SDL_Surface* screen) {
+void Image::draw(int x, int y) {
  if(image) {
   glColor4f(1,1,1,1);
   glBindTexture(GL_TEXTURE_2D,*image);

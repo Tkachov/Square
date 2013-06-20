@@ -14,15 +14,15 @@ Constructor, creates an empty sprite (with no frames at all).
 Constructor, creates a sprite with one frame which is given [Image](12_Image.md).  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [inherited from [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [inherited from [Object](04_Object.md#void-draw)]
 Draws sprite's frame on the screen.  
 
 ----
-##### `virtual void draw(int,int,SDL_Surface*)` [inherited from [Object](04_Object.md#virtual-void-drawint-x-int-y-sdl_surface)]
-Draws sprite's frame on the screen with given offset by X and Y axes.  
+##### `void draw(int x, int y)` [inherited from [Object](04_Object.md#void-drawint-x-int-y)]
+Draws sprite's frame on the screen in given point.  
 
 ----
-##### `virtual void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
 Does animating.  
 
 ----

@@ -3,7 +3,7 @@
 namespace Engine { namespace Objects {
 
 Window::Window(Game* g, Loader* l, int x, int y, int pr):
- Object(x,y,pr), Screen(g,0,l,0) { load(); }
+ Object(x,y,pr), Screen(g,l,0) { load(); }
 Window::~Window() {};
 
 void Window::load() {};
@@ -26,15 +26,6 @@ void Window::update() {
  input->pause();
 }
 
-void Window::draw(SDL_Surface* surf) {
- surface = surf;
- draw_queue();
-}
-
-void Window::add_object(Object* obj) {
- obj->set_x(obj->x()+_x);
- obj->set_y(obj->y()+_y);
- Screen::add_object(obj);
-}
+void Window::draw(int x, int y) { draw_queue(x, y); }
 
 } }

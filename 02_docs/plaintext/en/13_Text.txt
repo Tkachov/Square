@@ -13,13 +13,13 @@ If label's width is 0 or is negative, text won't have limited width. Otherwise t
  Text(TTF_Font* font, string text = "", int width = 0, SDL_Color color = SDL_Color(), int x = 0, int y = 0, int priority = 0)
   Constructor, that requires a font and can also get default text, label's width, color, position and priority.
 
- virtual void draw(SDL_Surface*) [inherited from Object]
+ void draw() [inherited from Object]
   Draws the text on the screen.
 
- virtual void draw(int,int,SDL_Surface*) [inherited from Object]
-  Draws the text on the screen with given offset by X and Y axises.
+ void draw(int x, int y) [inherited from Object]
+  Draws the text on the screen in given point.
 
- virtual void update(Input*) [inherited from Object]
+ void update(Input*) [inherited from Object]
   Does nothing.
 
  string const text()

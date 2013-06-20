@@ -4,7 +4,6 @@
 #include "..\Engine\screen.h"
 #include "..\Engine\Objects\button.h"
 #include "..\Engine\Objects\image.h"
-#include "..\Engine\Objects\fade_effect.h"
 using namespace Engine;
 
 class First_Screen: public Screen
@@ -20,7 +19,7 @@ class First_Screen: public Screen
   virtual void load();
 
  public:
-  First_Screen(Game* game, SDL_Surface* surf, Loader* ld, Input* in);
+  First_Screen(Game* game, Loader* ld, Input* in);
   virtual ~First_Screen();
 };
 

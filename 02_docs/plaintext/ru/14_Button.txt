@@ -31,10 +31,13 @@ Button является объектом класса Object, т.е. его фу
  Button(functor* = 0)
   Конструктор, может принимать объект класса functor, который будет использован при нажатии на кнопку.
 
- virtual void draw(SDL_Surface*) [наследуется из Object]
+ void draw() [наследуется из Object]
   Отрисовывает себя на экран.
 
- virtual void update(Input*) [наследуется из Object]
+ void draw(int x, int y) [наследуется из Object]
+  Отрисовывает себя на экран в заданной точке.
+
+ void update(Input*) [наследуется из Object]
   Обновляет состояние и вызывает функцию, если кнопка мыши была нажата.
 
  void set_up_state(Sprite)

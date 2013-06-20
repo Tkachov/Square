@@ -10,7 +10,7 @@
 
 Как объект класса Screen, Window может (и должен) перегружать функцию **[load()](03_Screen.md#void-load)**. Класс Window также предоставляет другую виртуальную функцию:  
 
-##### `virtual void disappear()`
+##### `void disappear()`
 Функция уничтожает объект и удаляет его из очереди объекта Screen.
 
 Вы также можете перегрузить обычные виртуальные функции класса Object, чтобы создать уникальное окно. Не забудьте, что вам не только нужно проверить ввод от пользователя самому, но и оповестить об этом свои объекты Object.
@@ -21,20 +21,24 @@
 Конструктор, передаёт параметры **game** и **loader** в конструктор Screen, а координаты и параметр **priority** — в конструктор Object.  
 
 ----
-##### `virtual void update()` [наследуется из [Screen](03_Screen.md#void-update)]
+##### `void update()` [наследуется из [Screen](03_Screen.md#void-update)]
 Обновляет очередь объектов Object.
 
 ----
-##### `virtual void redraw()` [наследуется из [Screen](03_Screen.md#void-redraw)]
+##### `void redraw()` [наследуется из [Screen](03_Screen.md#void-redraw)]
 Ничего не делает.  
 
 ----
-##### `virtual void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
-Запоминает переданный указатель на Input и вызывает **void update()**.  
+##### `void draw()` [наследуется из [Object](04_Object.md#void-draw)]
+Отрисовывает очередь объектов Object на экран.  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [наследуется из [Object](04_Object.md#void-drawsdl_surface)]
-Отрисовывает очередь объектов Object на экран.  
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-drawint-x-int-y)]
+Отрисовывает очередь объектов Object на экран в заданной точке.  
+
+----
+##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+Запоминает переданный указатель на Input и вызывает **void update()**.  
    
    
 **Предыдущий файл:** [класс Button](15_Button.md)  

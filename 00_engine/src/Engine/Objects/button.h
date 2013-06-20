@@ -28,7 +28,7 @@ public:
  Button(functor* = 0);
  virtual ~Button();
 
- virtual void draw(SDL_Surface*);
+ virtual void draw(int, int);
  virtual void update(Input*);
 
  void set_up_state(Sprite);

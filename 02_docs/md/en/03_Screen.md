@@ -4,7 +4,7 @@
 
 Screen objects are the main containers of [Object](04_Object.md)s that are drawn on the screen.
 
-Every Screen have it's ScreenID in game.h file so [Game](05_Game.md) object is able to distinguish different Screens from each other. There are two ways of starting a new Screen — passing a Screen pointer to Game's **[open_screen()](05_Game.md#void-open_screenscreen-screen)** or passing a ScreenID to Game's **[open_screen()](05_Game.md#void-open_screenscreenid-sid-bool-reload--false)** (it will create the necessary Screen object automatically).
+Every Screen have it's ScreenID in game.h file so [Game](05_Game.md) object is able to distinguish different Screens from each other. There are two ways of starting a new Screen — passing a Screen pointer to Game's **[open_screen()](05_Game.md#void-open_screenscreen-screen)** or passing a ScreenID to Game's **[open_screen()](05_Game.md#void-open_screenscreenid-sid-bool-reload--false)** (it will create the necessary Screen object automatically, if you have added your class in Game's **[create_screen(ScreenID)](05_Game.md#screenid)** function).
 
 Screens can be “static”. It means the object will be storaged by Game object and won't be created again. Static Screen objects are saving their state even if Game has opened some other Screens. You can also force recreating Screen object (for example, if you want to start a new game) by calling **[Game::open_screen()](05_Game.md#void-open_screenscreenid-sid-bool-reload--false)** with ScreenID and **true** parameters.
 

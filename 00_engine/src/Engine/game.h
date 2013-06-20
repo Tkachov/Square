@@ -32,7 +32,7 @@ namespace Engine {
   s_FIRST_SCREEN
  };
 
- #define SCREENID_DEFAULT s_FIRST_SCREEN
+ const ScreenID SCREENID_DEFAULT = s_FIRST_SCREEN;
 
  class Game
  {

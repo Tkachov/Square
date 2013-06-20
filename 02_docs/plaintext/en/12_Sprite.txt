@@ -12,13 +12,13 @@ Sprite class can be used to draw images and animations on the screen. It inherit
  Sprite(Image i)
   Constructor, creates a sprite with one frame which is given Image.
 
- virtual void draw(SDL_Surface*) [inherited from Object]
+ void draw() [inherited from Object]
   Draws sprite's frame on the screen.
 
- virtual void draw(int,int,SDL_Surface*) [inherited from Object]
-  Draws sprite's frame on the screen with given offset by X and Y axises.
+ void draw(int x, int y) [inherited from Object]
+  Draws sprite's frame on the screen in given point.
 
- virtual void update(Input*) [inherited from Object]
+ void update(Input*) [inherited from Object]
   Does animating.
 
  void set_frame(GLuint* texture, SDL_Surface* bitmap, int width, int height, int pw, int ph);

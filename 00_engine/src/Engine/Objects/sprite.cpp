@@ -23,21 +23,10 @@ void Sprite::update(Input*) {
  //input is unused
 }
 
-void Sprite::draw(SDL_Surface* s) {
- if(frames.size()==0 || curframe>=frames.size()) return;
- //manually draw current frame's surface
- SDL_Rect dstrect;
- dstrect.x = _x+frames[curframe].x();
- dstrect.y = _y+frames[curframe].y();
- frames[curframe].draw(dstrect.x, dstrect.y, s);
- //SDL_BlitSurface(current_frame(), 0, s, &dstrect);
-}
-
-void Sprite::draw(int sx, int sy, SDL_Surface* s) {
- int px = _x; _x=sx;
- int py = _y; _y=sy;
- draw(s);
- _x=px; _y=py;
+void Sprite::draw(int x, int y) {
+ if(curframe>=frames.size()) return;
+ //draw current frame
+ frames[curframe].draw(x+frames[curframe].x(), y+frames[curframe].y());
 }
 
 void Sprite::set_frame(GLuint* i,SDL_Surface* s,int w, int h, int pw, int ph) {

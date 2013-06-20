@@ -33,11 +33,15 @@ Usually is called from **[redraw()](15_Button.md#void-redraw)**.
 Constructor, can take a pointer to functor which will be used when button is pressed.  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [inherited from [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [inherited from [Object](04_Object.md#void-draw)]
 Draws itself on the screen.  
 
 ----
-##### `virtual void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
+##### `void draw(int x, int y)` [inherited from [Object](04_Object.md#void-drawint-x-int-y)]
+Draws itself on the screen in given point.  
+
+----
+##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
 Updates its' state and calls a function if mouse was pressed.  
 
 ----

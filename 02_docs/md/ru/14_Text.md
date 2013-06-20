@@ -14,15 +14,15 @@
 Конструтор, требующий указатель на шрифт и также принимающий текст по умолчанию, ширину надписи, её цвет, координаты и приоритет.  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [наследуется из [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [наследуется из [Object](04_Object.md#void-draw)]
 Отрисовывает текст на экране.  
 
 ----
-##### `virtual void draw(int,int,SDL_Surface*)` [наследуется из [Object](04_Object.md#virtual-void-drawint-x-int-y-sdl_surface)]
-Отрисовывает текст на экране со сдвигом по осям X и Y.  
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-drawint-x-int-y)]
+Отрисовывает текст на экране в заданной точке.  
 
 ----
-##### `virtual void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
 Ничего не делает.  
 
 ----

@@ -14,15 +14,15 @@
 Конструтор, создаёт спрайт с одним кадром, который является переданным [Image](12_Image.md).  
 
 ----
-##### `virtual void draw(SDL_Surface*)` [наследуется из [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [наследуется из [Object](04_Object.md#void-draw)]
 Отрисовывает спрайт на экране.  
 
 ----
-##### `virtual void draw(int,int,SDL_Surface*)` [наследуется из [Object](04_Object.md#virtual-void-drawint-x-int-y-sdl_surface)]
-Отрисовывает спрайт на экране с заданным сдвигом по осям X и Y.  
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-drawint-x-int-y)]
+Отрисовывает спрайт на экране в заданной точке.  
 
 ----
-##### `virtual void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
 Занимается анимацией.  
 
 ----

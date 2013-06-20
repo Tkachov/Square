@@ -1,9 +1,10 @@
 #include "screen.h"
+#include "utils.h"
 
 namespace Engine {
 
-Screen::Screen(Game* gm, SDL_Surface* surf, Loader* ld, Input* in, bool st):
- game(gm), loader(ld), input(in), surface(surf), _is_static(st) { load(); };
+Screen::Screen(Game* gm, Loader* ld, Input* in, bool st):
+ game(gm), loader(ld), input(in), _is_static(st) { load(); };
 
 Screen::~Screen() { clear_queue(); }
 
@@ -41,11 +42,11 @@ void Screen::clear_queue() {
 }
 void Screen::draw_queue() {
  for(opqueue::iterator i=objects.begin(); i!=objects.end(); ++i)
-  if(i->obj->enabled() && i->obj->visible()) i->obj->draw(surface);
+  if(i->obj->enabled() && i->obj->visible()) i->obj->draw();
 }
 void Screen::draw_queue(int ax, int ay) {
  for(opqueue::iterator i=objects.begin(); i!=objects.end(); ++i)
-  if(i->obj->enabled() && i->obj->visible()) i->obj->draw(i->obj->x()+ax, i->obj->y()+ay, surface);
+  if(i->obj->enabled() && i->obj->visible()) i->obj->draw(i->obj->x()+ax, i->obj->y()+ay);
 }
 
 void Screen::update() {
@@ -60,11 +61,9 @@ void Screen::redraw() {
  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
  draw_queue();
 #ifdef DBG_SOFTWARE_CURSOR
- if(input) {
-  SDL_Rect dstrect;
-  dstrect.x = input->mouse_x();
-  dstrect.y = input->mouse_y();
-  SDL_BlitSurface(loader->load_texture(DBG_SOFTWARE_CURSOR)->bmp(), 0, surface, &dstrect);
+ if(loader&&input) {
+  Image* cur = loader->load_texture(DBG_SOFTWARE_CURSOR);
+  if(cur) cur->draw(input->mouse_x(), input->mouse_y());
  }
 #endif
  SDL_GL_SwapBuffers();

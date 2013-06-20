@@ -6,12 +6,12 @@
 
 ## Функции
 
-##### `void draw(SDL_Surface*)` [наследуется из [Object](04_Object.md#void-drawsdl_surface)]
+##### `void draw()` [наследуется из [Object](04_Object.md#void-draw)]
 Отрисовывает храняющуюся текстуру.  
 
 ----
-##### `void draw(int x, int y, SDL_Surface*)` [наследуется из [Object](04_Object.md#virtual-void-drawint-x-int-y-sdl_surface)]
-Отрисовывает храняющуюся текстуру со сдвигом по осям X и Y.  
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-drawint-x-int-y)]
+Отрисовывает храняющуюся текстуру в заданной точке.  
 
 ----
 ##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]

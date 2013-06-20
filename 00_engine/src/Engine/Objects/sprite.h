@@ -23,8 +23,7 @@ public:
  Sprite(Image i): Object(), curframe(0), _counter(1), animspeed(1), _w(0), _h(0) { set_frame(i); }
  Sprite(const Sprite& t);
 
- virtual void draw(SDL_Surface*);
- virtual void draw(int, int, SDL_Surface*);
+ virtual void draw(int, int);
  virtual void update(Input*);
  void set_frame(GLuint*,SDL_Surface*,int,int,int,int);
  void add_frame(GLuint*,SDL_Surface*,int,int,int,int);

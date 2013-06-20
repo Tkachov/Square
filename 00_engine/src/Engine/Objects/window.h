@@ -15,7 +15,6 @@ class Window: public Object, public Screen
  protected:
   virtual void load();
   virtual void disappear();
-  void add_object(Object*);
 
  public:
   Window(Game*, Loader*, int, int, int pr = 0);
@@ -24,7 +23,7 @@ class Window: public Object, public Screen
   virtual void update();
   virtual void redraw() {};
   virtual void update(Input*);
-  virtual void draw(SDL_Surface*);
+  virtual void draw(int, int);
 };
 
 } }
