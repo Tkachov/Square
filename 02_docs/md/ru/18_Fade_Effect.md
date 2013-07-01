@@ -24,7 +24,7 @@
 Отрисовывает эффект на экране.  
 
 ----
-##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-draw)]
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-drawint-x-int-y)]
 Отрисовывает эффект на экране в заданной точке.  
 
 ----

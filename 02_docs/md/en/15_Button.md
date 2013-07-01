@@ -16,7 +16,7 @@ The button contains [Text](14_Text.md) label, which can draw text over button's 
 
 ## Deriving a Button class
 
-Button is an Object object, so its' **[update()](04_Object.md#void-updateinput)** and **[draw()](04_Object.md#void-drawsdl_surface)** functions can (and should) be overriden. But the Button class itself have some protected functions that control its' behaviour:  
+Button is an Object object, so its' **[update()](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)** and **[draw()](04_Object.md#void-draw)** functions can (and should) be overriden. But the Button class itself have some protected functions that control its' behaviour:  
 
 ##### `void redraw()`
 This function is called every time button should be redrawn (when state, font or something else was changed).  
