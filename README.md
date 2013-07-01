@@ -17,7 +17,8 @@ As the project is being developed in Code::Blocks IDE, you'll find .cbp file in 
 These folders can be found in repository:
 * 00_engine, — contains (almost empty) template project which can be used to create a new application.
 * 01_examples, — contains example applications.
-    + 00_TBS, — contains turn-based strategy example.
+    + 00_TBS, — contains turn-based strategy example,
+    + 01_windows, — contains windows example (which you can drag, open and close).
 * 02_docs, — contains Square documentation.
     + md, — Markdown format.
     + plaintext, — txt-files.

@@ -120,3 +120,4 @@
 **Предыдущий файл:** [класс String_Table](07_String_Table.md)  
 **[Содержание](00_Contents.md)**  
 **Следующий файл:** [класс Loader](09_Loader.md)
+

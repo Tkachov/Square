@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Windows Example" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="../bin/01_windows" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../bin/" />
+				<Option object_output="../obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DDEBUG_H" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Debug">
+				<Option output="../bin/DEBUG_01_windows" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../bin/" />
+				<Option object_output="../obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DNO_STDIO_REDIRECT" />
+			<Add directory="$(#sdl.include)/SDL" />
+			<Add directory="D:/Programs/CodeBlocks_x86/MinGW/include" />
+		</Compiler>
+		<Linker>
+			<Add option="../res/icon.res" />
+			<Add library="mingw32" />
+			<Add library="SDL.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="SDL_image" />
+			<Add library="SDL_ttf" />
+			<Add library="OpenGL32" />
+			<Add library="glu32" />
+			<Add directory="$(#sdl.lib)" />
+			<Add directory="D:/Programs/CodeBlocks_x86/MinGW/lib" />
+		</Linker>
+		<Unit filename="Engine/Data/string_table.cpp" />
+		<Unit filename="Engine/Data/string_table.h" />
+		<Unit filename="Engine/Objects/button.cpp" />
+		<Unit filename="Engine/Objects/button.h" />
+		<Unit filename="Engine/Objects/fade_effect.cpp" />
+		<Unit filename="Engine/Objects/fade_effect.h" />
+		<Unit filename="Engine/Objects/image.cpp" />
+		<Unit filename="Engine/Objects/image.h" />
+		<Unit filename="Engine/Objects/object.h" />
+		<Unit filename="Engine/Objects/sprite.cpp" />
+		<Unit filename="Engine/Objects/sprite.h" />
+		<Unit filename="Engine/Objects/text.cpp" />
+		<Unit filename="Engine/Objects/text.h" />
+		<Unit filename="Engine/Objects/timer.h" />
+		<Unit filename="Engine/Objects/window.cpp" />
+		<Unit filename="Engine/Objects/window.h" />
+		<Unit filename="Engine/SDL_win32_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Engine/debug.h" />
+		<Unit filename="Engine/functor.h" />
+		<Unit filename="Engine/game.cpp" />
+		<Unit filename="Engine/game.h" />
+		<Unit filename="Engine/input.cpp" />
+		<Unit filename="Engine/input.h" />
+		<Unit filename="Engine/loader.cpp" />
+		<Unit filename="Engine/loader.h" />
+		<Unit filename="Engine/logger.cpp" />
+		<Unit filename="Engine/logger.h" />
+		<Unit filename="Engine/screen.cpp" />
+		<Unit filename="Engine/screen.h" />
+		<Unit filename="Engine/state.cpp" />
+		<Unit filename="Engine/state.h" />
+		<Unit filename="Engine/utils.cpp" />
+		<Unit filename="Engine/utils.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="objects/popup_window.cpp" />
+		<Unit filename="objects/popup_window.h" />
+		<Unit filename="screens/first_screen.cpp" />
+		<Unit filename="screens/first_screen.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

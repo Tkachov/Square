@@ -1,2 +1,4 @@
-﻿//unnecessary symbols charcodes
+﻿
+//unnecessary symbols charcodes
 8470 = №
+

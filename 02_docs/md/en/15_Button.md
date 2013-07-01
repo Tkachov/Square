@@ -109,3 +109,4 @@ Returns whether button is disabled or not. (disabled is **true**, enabled is **f
 **Previous file:** [Text class](14_Text.md)  
 **[Contents](00_Contents.md)**  
 **Next file:** [Window class](16_Window.md) 
+

@@ -48,3 +48,4 @@
  public static String_Table translate
   Содержит пары ключ-значение из general.txt (и других файлов, которые вы загрузите в таблицу в функции Game::start()).
   Использование: String_Table::translate["key"] или String_Table::translate("key", string("Слово 1"), string("Слово 2")).
+  

@@ -1,4 +1,5 @@
-﻿//cyrrilic symbols charcodes
+﻿
+//cyrrilic symbols charcodes
 1081 = й
 1094 = ц
 1091 = у

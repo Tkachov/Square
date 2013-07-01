@@ -1,0 +1,20 @@
+﻿//
+//    COMMON
+//
+OK		=	ОК
+Cancel		=	Отмена
+Yes		=	Да
+No		=	Нет
+
+//
+//    SCREEN
+//
+
+new_window	=	Открыть окно
+exit_game	=	Выйти
+window_caption	=	Заголовок окна
+
+
+
+
+

@@ -34,3 +34,4 @@
    
   void update(Input*) [наследуется из Object]
    Запоминает переданный указатель на Input и вызывает void update().
+   
