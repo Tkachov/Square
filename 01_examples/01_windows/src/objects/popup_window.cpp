@@ -23,9 +23,9 @@ Popup_Window::Popup_Window(Game* g, Loader* l, int x, int y, int pr):
 
 Popup_Window::~Popup_Window() {};
 
-void Popup_Window::update(Input* i, int xo, int yo) {
+void Popup_Window::update(Input* i, int x_offset, int y_offset) {
  input = i;
- update(xo, yo);
+ update(x_offset, y_offset);
 
  if(i && !i->paused()) {
   if(follow) {
@@ -52,9 +52,13 @@ void Popup_Window::update(Input* i, int xo, int yo) {
  }
 }
 
-void Popup_Window::update(int xo, int yo) {
+void Popup_Window::update(int x_offset, int y_offset) {
  if(_destroy||input==0) return;
- update_queue(xo, yo);
+ update_queue(_x+x_offset, _y+y_offset);
+}
+
+void Popup_Window::update() {
+ update(0,0);
 }
 
 void Popup_Window::fnc_close() {

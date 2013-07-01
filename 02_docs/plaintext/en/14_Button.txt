@@ -37,7 +37,7 @@ Button is an Object object, so its' update() and draw() functions can (and shoul
  void draw(int x, int y) [inherited from Object]
   Draws itself on the screen.
 
- void update(Input*) [inherited from Object]
+ void update(Input*, int x_offset = 0, int y_offset = 0) [inherited from Object]
   Updates its' state and calls a function if mouse was pressed.
 
  void set_up_state(Sprite)

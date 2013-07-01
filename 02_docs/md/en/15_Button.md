@@ -41,7 +41,7 @@ Draws itself on the screen.
 Draws itself on the screen in given point.  
 
 ----
-##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [inherited from [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
 Updates its' state and calls a function if mouse was pressed.  
 
 ----

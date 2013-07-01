@@ -19,7 +19,7 @@ If label's width is 0 or is negative, text won't have limited width. Otherwise t
  void draw(int x, int y) [inherited from Object]
   Draws the text on the screen in given point.
 
- void update(Input*) [inherited from Object]
+ void update(Input*, int = 0, int = 0) [inherited from Object]
   Does nothing.
 
  string const text()

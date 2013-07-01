@@ -24,7 +24,7 @@ public:
  Sprite(const Sprite& t);
 
  virtual void draw(int, int);
- virtual void update(Input*);
+ virtual void update(Input*, int = 0, int = 0);
  void set_frame(GLuint*,SDL_Surface*,int,int,int,int);
  void add_frame(GLuint*,SDL_Surface*,int,int,int,int);
  void set_frame(Image);

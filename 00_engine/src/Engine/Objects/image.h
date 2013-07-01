@@ -22,7 +22,7 @@ class Image: public Object
   virtual ~Image() {};
 
   void draw(int, int);
-  void update(Input*);
+  void update(Input*, int = 0, int = 0);
 
   GLuint* const img() { return image; };
   SDL_Surface* const bmp() { return bitmap; };

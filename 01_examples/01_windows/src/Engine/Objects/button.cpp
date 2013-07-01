@@ -8,8 +8,8 @@ Button::~Button() {
 }
 
 void Button::update(Input* input, int x_offset, int y_offset) {
- int mx = input->mouse_x()-x_offset;
- int my = input->mouse_y()-y_offset;
+ int mx = input->mouse_x() - x_offset;
+ int my = input->mouse_y() - y_offset;
  int ns = 0;
  if(delay) --delay;
  if(disabled) ns=3;

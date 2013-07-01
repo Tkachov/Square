@@ -72,8 +72,9 @@ This function adds a new object to the queue. As queue's order can be broken by 
 This function reorders the queue.  
 
 ----
-##### `void update_queue()`
+##### `void update_queue(int x_offset = 0, int y_offset = 0)`
 This function notify Objects in queue to check [Input](08_Input.md) and change their state if necessary.  
+Passes offset which should be noticed when getting mouse coordinates.  
 
 ----
 ##### `void clear_queue()`

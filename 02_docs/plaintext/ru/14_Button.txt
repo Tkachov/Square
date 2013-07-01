@@ -37,7 +37,7 @@ Button является объектом класса Object, т.е. его фу
  void draw(int x, int y) [наследуется из Object]
   Отрисовывает себя на экран в заданной точке.
 
- void update(Input*) [наследуется из Object]
+ void update(Input*, int x_offset = 0, int y_offset = 0) [наследуется из Object]
   Обновляет состояние и вызывает функцию, если кнопка мыши была нажата.
 
  void set_up_state(Sprite)

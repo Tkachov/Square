@@ -25,8 +25,9 @@ This function is called by Screen object. The Object should draw itself in given
 Object class' **draw()** is pure virtual function.  
 
 ----
-##### `void update(Input*)`
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)`
 This function is called by Screen object. The passed pointer can be used to get current input state and react if necessary.  
+Gets offset which should be noticed when getting mouse coordinates.  
 Object class' **update()** is pure virtual function.
 
 ## Object class' functions

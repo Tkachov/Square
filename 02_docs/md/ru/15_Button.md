@@ -41,7 +41,7 @@ Button является объектом класса Object, т.е. его фу
 Отрисовывает себя на экран в заданной точке.  
 
 ----
-##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [наследуется из [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
 Обновляет состояние и вызывает функцию, если кнопка мыши была нажата.  
 
 ----

@@ -18,7 +18,7 @@ Sprite class can be used to draw images and animations on the screen. It inherit
  void draw(int x, int y) [inherited from Object]
   Draws sprite's frame on the screen in given point.
 
- void update(Input*) [inherited from Object]
+ void update(Input*, int = 0, int = 0) [inherited from Object]
   Does animating.
 
  void set_frame(GLuint* texture, SDL_Surface* bitmap, int width, int height, int pw, int ph);

@@ -21,7 +21,7 @@ You also can override usual Object class virtual functions to make an unique win
    Constuctor, passes %game% and %loader% to Screen constructor and position and %priority% parameters to Object constructor.
 
   void update() [inherited from Screen]
-   Updates Objects queue.
+   Updates Objects queue as if update() was called with offset {0,0}.
    
   void redraw() [inherited from Screen]
    Does nothing.
@@ -32,5 +32,5 @@ You also can override usual Object class virtual functions to make an unique win
   void draw(int x, int y) [inherited from Object]
    Draws Objects queue on the screen in given point.  
 
-  void update(Input*) [inherited from Object]
-   Remembers current input pointer and calls void update().
+  void update(Input*, int x_offset = 0, int y_offset = 0) [inherited from Object]
+   Remembers current input pointer and updates Objects queue with given offset.
