@@ -25,7 +25,7 @@ class First_Screen: public Screen
   First_Screen(Game* game, Loader* ld, Input* in);
   virtual ~First_Screen();
 
-  virtual void update(int = 0, int = 0);
+  virtual void update();
 };
 
 #endif // FIRST_SCREEN_H

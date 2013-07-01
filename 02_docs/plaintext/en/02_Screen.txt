@@ -63,8 +63,9 @@ This is a list of protected Screen class' functions:
  void reorder_queue()
   This function reorders the queue.
 
- void update_queue()
+ void update_queue(int x_offset = 0, int y_offset = 0)
   This function notify Objects in queue to check Input and change their state if necessary.
+  Passes offset which should be noticed when getting mouse coordinates.
 
  void clear_queue()
   This function removes every Object from the queue.

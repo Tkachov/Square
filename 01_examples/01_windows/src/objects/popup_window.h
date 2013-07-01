@@ -13,12 +13,14 @@ class Popup_Window: public Window
   friend class Functor<Popup_Window>;
   void fnc_close();
 
+  void update(int, int);
+
  public:
   Popup_Window(Game*, Loader*, int x = 0, int y = 0, int pr = 0);
   virtual ~Popup_Window();
 
   virtual void update(Input*, int = 0, int = 0);
-  virtual void update(int = 0, int = 0);
+  virtual void update();
 };
 
 #endif // POPUP_WINDOW_H

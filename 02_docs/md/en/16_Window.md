@@ -22,7 +22,7 @@ Constuctor, passes **game** and **loader** to Screen constructor and position an
 
 ----
 ##### `void update()` [inherited from [Screen](03_Screen.md#void-update)]
-Updates Objects queue.  
+Updates Objects queue as if **update(Input*, int x_offset, int y_offset)** was called with offset {0,0}.  
 
 ----
 ##### `void redraw()` [inherited from [Screen](03_Screen.md#void-redraw)]
@@ -37,8 +37,8 @@ Draws Objects queue on the screen.
 Draws Objects queue on the screen in given point.  
 
 ----
-##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
-Remembers current input pointer and calls **void update()**.  
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [inherited from [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
+Remembers current input pointer and updates Objects queue with given offset.  
    
    
 **Previous file:** [Button class](15_Button.md)  

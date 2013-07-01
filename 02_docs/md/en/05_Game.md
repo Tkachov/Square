@@ -80,7 +80,7 @@ Replaces option's with name **key** value with **value**.
 game.h file contains ScreenID enum and **SCREENID_DEFAULT** contant definitions.  
 Game class also contains a private function **create_screen(ScreenID)**, which contains switch of ScreenID values and creates corresponding Screen classes.  
 When you derive Screen class, you should also add new ScreenID value into enumeration, include your class' header file into game.cpp and edit the function.  
-Otherwise, function **[open_screen(ScreenID, bool)](05_Game.md#void-open_screenscreenid-sid-bool-reload-false)** will not be able to create your class' objects (you still can use **[open_screen(Screen*)](05_Game.md#void-open_screenscreen-screen)** though).  
+Otherwise, function **[open_screen(ScreenID, bool)](05_Game.md#void-open_screenscreenid-sid-bool-reload--false)** will not be able to create your class' objects (you still can use **[open_screen(Screen*)](05_Game.md#void-open_screenscreen-screen)** though).  
 
 ## Other stuff
 

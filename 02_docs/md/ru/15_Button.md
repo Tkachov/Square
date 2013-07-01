@@ -16,7 +16,7 @@
 
 ## Наследование класса Button
 
-Button является объектом класса Object, т.е. его функции **[update()](04_Object.md#void-updateinput)** и **[draw()](04_Object.md#void-drawsdl_surface)** могут (и должны) быть перегружены. Но сам класса Button содержит защищённые функции, управляющие его поведением:
+Button является объектом класса Object, т.е. его функции **[update()](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)** и **[draw()](04_Object.md#void-draw)** могут (и должны) быть перегружены. Но сам класса Button содержит защищённые функции, управляющие его поведением:
 
 ##### `void redraw()`
 Функция, которая вызывается каждый раз, когда кнопку нужно перерисовать (когда состояние, шрифт надписи или ещё что-нибудь изменилось).  
@@ -41,7 +41,7 @@ Button является объектом класса Object, т.е. его фу
 Отрисовывает себя на экран в заданной точке.  
 
 ----
-##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [наследуется из [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
 Обновляет состояние и вызывает функцию, если кнопка мыши была нажата.  
 
 ----

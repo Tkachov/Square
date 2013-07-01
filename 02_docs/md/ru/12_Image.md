@@ -14,7 +14,7 @@
 Отрисовывает храняющуюся текстуру в заданной точке.  
 
 ----
-##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [наследуется из [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
 Если курсор находится над текстурой и пересекает её, то функция «съедает» событие перемещения мыши. Если переменная **this.eat_click** равна **true**, «съедает» и событие нажатия мыши.  
 
 ----
@@ -28,7 +28,7 @@
 ----
 ##### `bool eating_clicks()`
 Возвращает значение переменной **this.eat_click**.  
-(См. также **[void update(Input*)](12_Image.md#void-updateinput-inherited-from-object)**.)  
+(См. также **[void update(Input*)](12_Image.md#void-updateinput-int-x_offset--0-int-y_offset--0---object)**.)  
 
 ----
 ##### `int w()`
@@ -49,7 +49,7 @@
 ----
 ##### `void set_eating_clicks(bool)`
 Устанавливает значение переменной **this.eat_click**.  
-(См. также **[void update(Input*)](12_Image.md#void-updateinput-inherited-from-object)**.)  
+(См. также **[void update(Input*)](12_Image.md#void-updateinput-int-x_offset--0-int-y_offset--0---object)**.)  
 
 ----
 ##### `void set_img(GLuint*)`

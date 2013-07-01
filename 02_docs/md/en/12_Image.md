@@ -14,7 +14,7 @@ Draws the texture this object contains.
 Draws the texture this object contains in given point.  
 
 ----
-##### `void update(Input*)` [inherited from [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [inherited from [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
 If mouse pointer is on the texture and intersects it, then “eats” mouse move event. If **this.eat_click** is **true**, “eats” mouse click event too.  
 
 ----
@@ -28,7 +28,7 @@ Returns SDL's bitmap surface.
 ----
 ##### `bool eating_clicks()`
 Returns whether **this.eat_click** is **true** or not.  
-(Look **[void update(Input*)](12_Image.md#void-updateinput-inherited-from-object)**.)  
+(Look **[void update(Input*)](12_Image.md#void-updateinput-int-x_offset--0-int-y_offset--0-inherited-from-object)**.)  
 
 ----
 ##### `int w()`
@@ -49,7 +49,7 @@ Returns texture height (can be only power of 2).
 ----
 ##### `void set_eating_clicks(bool)`
 Sets **this.eat_click** value.  
-(Look **[void update(Input*)](12_Image.md#void-updateinput-inherited-from-object)**.)  
+(Look **[void update(Input*)](12_Image.md#void-updateinput-int-x_offset--0-int-y_offset--0-inherited-from-object)**.)  
 
 ----
 ##### `void set_img(GLuint*)`

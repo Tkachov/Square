@@ -32,7 +32,7 @@ class Fade_Effect: public Object
   Fade_Effect(Fade_Mode, int delay, functor* = 0, int sx = 0, int sy = 0, int pr = 0);
   virtual ~Fade_Effect();
 
-  virtual void update(Input*);
+  virtual void update(Input*, int = 0, int = 0);
   virtual void draw(int, int);
 
   void color_mode(int r, int g, int b, int w, int h);

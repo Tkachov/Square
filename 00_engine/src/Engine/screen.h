@@ -43,7 +43,7 @@ class Screen
 
   void add_object(Object* o, bool reorder = true);
   void reorder_queue();
-  void update_queue();
+  void update_queue(int = 0, int = 0);
   void clear_queue();
   void draw_queue();
   void draw_queue(int,int);

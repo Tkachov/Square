@@ -29,7 +29,7 @@ public:
  virtual ~Button();
 
  virtual void draw(int, int);
- virtual void update(Input*);
+ virtual void update(Input*, int = 0, int = 0);
 
  void set_up_state(Sprite);
  void set_over_state(Sprite);

@@ -25,7 +25,7 @@ m_FADE_IN and m_FADE_OUT can be used to make fade-in or fade-out effect with col
  void draw(int x, int y) [inherited from Object]
   Draws the effect on the screen in given point.
 
- void update(Input*) [inherited from Object]
+ void update(Input*, int = 0, int = 0) [inherited from Object]
   Updates the state.
 
  void color_mode(int r, int g, int b, int w, int h)

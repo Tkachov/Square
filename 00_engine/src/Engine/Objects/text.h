@@ -34,7 +34,7 @@ public:
  Text& operator=(const Text&); //assignment
  virtual ~Text();
 
- virtual void update(Input*) {};
+ virtual void update(Input*, int = 0, int = 0) {};
  virtual void draw(int, int);
 
  string const text() { return _text; }
