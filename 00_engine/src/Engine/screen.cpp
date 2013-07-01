@@ -20,7 +20,7 @@ void Screen::add_object(Object* o, bool reorder) {
 }
 
 void Screen::reorder_queue() { sort(objects.begin(),objects.end()); }
-void Screen::update_queue() {
+void Screen::update_queue(int x_offset, int y_offset) {
  opqueue clone;
  clone.reserve(objects.size());
 
@@ -34,7 +34,7 @@ void Screen::update_queue() {
  }
 
  for(opqueue::reverse_iterator i=clone.rbegin(); i!=clone.rend(); ++i)
-  if(i->obj->enabled()) i->obj->update(input);
+  if(i->obj->enabled()) i->obj->update(input, x_offset, y_offset);
 }
 void Screen::clear_queue() {
  for(opqueue::iterator i=objects.begin(); i!=objects.end(); ++i) delete i->obj;

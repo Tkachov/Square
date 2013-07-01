@@ -20,7 +20,7 @@ void Screen::add_object(Object* o, bool reorder) {
 }
 
 void Screen::reorder_queue() { sort(objects.begin(),objects.end()); }
-void Screen::update_queue(int xo, int yo) {
+void Screen::update_queue(int x_offset, int y_offset) {
  opqueue clone;
  clone.reserve(objects.size());
 
@@ -34,7 +34,7 @@ void Screen::update_queue(int xo, int yo) {
  }
 
  for(opqueue::reverse_iterator i=clone.rbegin(); i!=clone.rend(); ++i)
-  if(i->obj->enabled()) i->obj->update(input, xo, yo);
+  if(i->obj->enabled()) i->obj->update(input, x_offset, y_offset);
 }
 void Screen::clear_queue() {
  for(opqueue::iterator i=objects.begin(); i!=objects.end(); ++i) delete i->obj;
@@ -49,9 +49,9 @@ void Screen::draw_queue(int ax, int ay) {
   if(i->obj->enabled() && i->obj->visible()) i->obj->draw(i->obj->x()+ax, i->obj->y()+ay);
 }
 
-void Screen::update(int xo, int yo) {
+void Screen::update() {
  if(input->terminate()) game->stop();
- update_queue(xo, yo);
+ update_queue();
  if(input->key_release(SDLK_ESCAPE)) game->stop(); //keys may be eaten by overlay windows
 }
 

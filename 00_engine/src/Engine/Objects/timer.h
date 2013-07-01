@@ -20,7 +20,7 @@ public:
  virtual ~Timer() {};
 
  virtual void draw(int, int) {};
- virtual void update(Input*) {
+ virtual void update(Input*, int = 0, int = 0) {
   if(_time == _count && _count!=0) return;
   if(_timer==_limit) {
    if(fnc!=0) (*fnc)();

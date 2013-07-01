@@ -52,7 +52,7 @@ class Screen
   Screen(Game* gm, Loader* ld, Input* input, bool st = false);
   virtual ~Screen();
   virtual void start(); //called each time screen is opened
-  virtual void update(int = 0, int = 0);
+  virtual void update();
   virtual void redraw();
   virtual void show_message(Object*);
   virtual void save_state(ofstream&);

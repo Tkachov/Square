@@ -11,7 +11,7 @@ Sprite::Sprite(const Sprite& t) {
   frames.push_back(*i);
 }
 
-void Sprite::update(Input*, int xo, int yo) {
+void Sprite::update(Input*, int, int) {
  //animation
  if(frames.size()!=0 && animspeed!=0) {
   if(++_counter % animspeed == 0) {

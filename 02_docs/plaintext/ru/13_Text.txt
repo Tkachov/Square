@@ -19,7 +19,7 @@
  void draw(int x, int y) [наследуется из Object]
   Отрисовывает текст на экране в заданной точке.
 
- void update(Input*) [наследуется из Object]
+ void update(Input*, int = 0, int = 0) [наследуется из Object]
   Ничего не делает.
 
  string const text()

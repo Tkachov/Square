@@ -25,7 +25,7 @@ m_FADE_IN и m_FADE_OUT используются для эффектов с цв
  void draw(int x, int y) [наследуется из Object]
   Отрисовывает эффект на экране в заданной точке.
 
- void update(Input*) [наследуется из Object]
+ void update(Input*, int = 0, int = 0) [наследуется из Object]
   Обновляет состояние.
 
  void color_mode(int r, int g, int b, int w, int h)

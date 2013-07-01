@@ -81,7 +81,7 @@
 Файл game.h содержит объявление перечисления ScreenID и константы **SCREENID_DEFAULT**.  
 В классе Game также содержится приватную функцию **create_screen(ScreenID)**, в которой находится switch, перебирающий значения ScreenID и создающий соответствующие классы-наследники Screen.  
 Когда вы наследуете класс Screen, вам следует также добавить значение в перечисление ScreenID, включить заголовочный файл вашего класса в файл game.cpp и изменить функцию.  
-В противном случае функция **[open_screen(ScreenID, bool)](05_Game.md#void-open_screenscreenid-sid-bool-reload-false)** не сможет создавать объекты вашего класса (хотя вы всё равно можете использовать функцию **[open_screen(Screen*)](05_Game.md#void-open_screenscreen-screen)**).
+В противном случае функция **[open_screen(ScreenID, bool)](05_Game.md#void-open_screenscreenid-sid-bool-reload--false)** не сможет создавать объекты вашего класса (хотя вы всё равно можете использовать функцию **[open_screen(Screen*)](05_Game.md#void-open_screenscreen-screen)**).
 
 ## Прочее
 

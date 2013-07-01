@@ -37,7 +37,7 @@ Button* First_Screen::add_button(int x, int y, string text, functor* f, int pr) 
  return b;
 }
 
-void First_Screen::update(int xo, int yo) {
+void First_Screen::update() {
  if(input->terminate()) game->stop();
  bool refresh = false;
  for(opqueue::iterator i=objects.begin(); i!=objects.end(); ++i)
@@ -47,7 +47,7 @@ void First_Screen::update(int xo, int yo) {
    i->obj->set_priority(i->obj->priority()<3?1:2);
  }
  reorder_queue();
- update_queue(xo, yo);
+ update_queue();
  if(input->key_release(SDLK_ESCAPE)) game->stop();
 }
 //}

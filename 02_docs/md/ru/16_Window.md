@@ -22,7 +22,7 @@
 
 ----
 ##### `void update()` [наследуется из [Screen](03_Screen.md#void-update)]
-Обновляет очередь объектов Object.
+Обновляет очередь объектов Object, будто бы в **update(Input*, int x_offset, int y_offset)** было передано смещение {0,0}.
 
 ----
 ##### `void redraw()` [наследуется из [Screen](03_Screen.md#void-redraw)]
@@ -37,8 +37,8 @@
 Отрисовывает очередь объектов Object на экран в заданной точке.  
 
 ----
-##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
-Запоминает переданный указатель на Input и вызывает **void update()**.  
+##### `void update(Input*, int x_offset = 0, int y_offset = 0)` [наследуется из [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
+Запоминает переданный указатель на Input и обновляет очередь объектов Object с заданным смещением.  
    
    
 **Предыдущий файл:** [класс Button](15_Button.md)  

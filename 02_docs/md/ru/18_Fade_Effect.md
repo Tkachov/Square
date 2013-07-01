@@ -24,11 +24,11 @@
 Отрисовывает эффект на экране.  
 
 ----
-##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-draw)]
+##### `void draw(int x, int y)` [наследуется из [Object](04_Object.md#void-drawint-x-int-y)]
 Отрисовывает эффект на экране в заданной точке.  
 
 ----
-##### `void update(Input*)` [наследуется из [Object](04_Object.md#void-updateinput)]
+##### `void update(Input*, int = 0, int = 0)` [наследуется из [Object](04_Object.md#void-updateinput-int-x_offset--0-int-y_offset--0)]
 Обновляет состояние.  
 
 ----

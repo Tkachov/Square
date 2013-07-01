@@ -19,7 +19,7 @@ public:
  Object(int sx = 0, int sy = 0, int pr = 0): _x(sx), _y(sy), _priority(pr), _destroy(false), _visible(true), _enabled(true) {};
  virtual ~Object() {};
 
- virtual void update(Input*) = 0;
+ virtual void update(Input*, int = 0, int = 0) = 0;
  virtual void draw() { draw(_x, _y); }
  virtual void draw(int, int) = 0;
 

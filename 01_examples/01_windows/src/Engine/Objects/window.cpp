@@ -13,34 +13,21 @@ void Window::disappear() {
  _destroy = true;
 }
 
-void Window::update_queue(int xo, int yo) {
- opqueue clone;
- clone.reserve(objects.size());
-
- bool removed = false;
- for(opqueue::iterator i=objects.begin(); i!=objects.end(); ++i)
-  if(!i->obj->destroy()) clone.push_back(*i);
-  else {delete i->obj; removed=true;}
- if(removed) {
-  objects.clear();
-  objects = clone;
- }
-
- for(opqueue::reverse_iterator i=clone.rbegin(); i!=clone.rend(); ++i)
-  if(i->obj->enabled()) i->obj->update(input, _x+xo, _y+yo);
-}
-
-void Window::update(Input* _input, int xo, int yo) {
+void Window::update(Input* _input, int x_offset, int y_offset) {
  input = _input;
- update(xo, yo);
+ update(x_offset, y_offset);
  if(_destroy) input->unpause(); //in case when the object is destroyed in %update%
 }
 
-void Window::update(int xo, int yo) {
+void Window::update(int x_offset, int y_offset) {
  if(_destroy||input==0) return;
  input->unpause();
- update_queue(xo, yo);
+ update_queue(_x+x_offset, _y+y_offset);
  input->pause();
+}
+
+void Window::update() {
+ update(0,0);
 }
 
 void Window::draw(int x, int y) { draw_queue(x, y); }

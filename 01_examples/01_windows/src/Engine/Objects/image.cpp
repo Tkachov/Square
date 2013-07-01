@@ -13,10 +13,10 @@ void Image::draw(int x, int y) {
  }
 }
 
-void Image::update(Input* input, int xo, int yo) {
+void Image::update(Input* input, int x_offset, int y_offset) {
  if(!input->paused() && !input->mouse_eaten(0)) {
-  int mx = input->mouse_x()-xo;
-  int my = input->mouse_y()-yo;
+  int mx = input->mouse_x() - x_offset;
+  int my = input->mouse_y() - y_offset;
   bool intersects = ((mx > _x && mx < _x + _w) && (my > _y && my < _y + _h));
   if(intersects) intersects = is_intersected(mx-_x,my-_y);
   if(intersects) {

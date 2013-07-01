@@ -9,7 +9,7 @@ Fade_Effect::~Fade_Effect() {
  if(func) delete func;
 }
 
-void Fade_Effect::update(Input*, int xo, int yo) {
+void Fade_Effect::update(Input*, int, int) {
  if(counter==limit && func!=0) (*func)();
  ++counter;
 }
