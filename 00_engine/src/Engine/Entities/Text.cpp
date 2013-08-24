@@ -1,15 +1,22 @@
-#include "text.h"
+#include "Text.h"
+#include "../utils.h"
 
-namespace Engine { namespace Objects {
+namespace Engine { namespace Entities {
 
-/*CONSTRUCTORS & DESTRUCTOR*/
+//{ CONSTRUCTION/DESTRUCTION
 
-Text::Text(TTF_Font* fnt, string txt, int wdth, SDL_Color clr, int x, int y, int pr): Object(x,y,pr), _font(fnt), _text(txt), _color(clr), _image(0), _antialiased(true), _width(wdth) {
- if(_width<0) _width=0;
- redraw();
+Text::Text(Controller* c, TTF_Font* fnt, string txt, unsigned int w, SDL_Color* clr, int xp, int yp, int pr):
+ Entity(c), _antialiasing(true), _font(fnt), _label(0), _text(txt), _width(w)
+{
+ if(!clr) _color.r=_color.g=_color.b=255;
+ else _color = *clr;
+
+ _x = xp;
+ _y = yp;
+ _priority = pr;
 }
 
-Text::Text(const Text& t) { clone(t); }
+Text::Text(const Text& t): Entity(t.controller) { clone(t); }
 
 Text& Text::operator=(const Text& t) {
  if(this!=&t) clone(t);
@@ -18,11 +25,56 @@ Text& Text::operator=(const Text& t) {
 
 Text::~Text() {
  free_surface();
-};
+}
 
-/*PRIVATE METHODS*/
+//}
 
-void Text::redraw() {
+//{ PRIVATE METHODS
+
+void Text::clone(const Text& t) {
+ //copy Entity values
+ _x = t._x;
+ _y = t._y;
+ _priority = t._priority;
+ _destroy = t._destroy;
+ _visible = t._visible;
+ _enabled = t._enabled;
+
+ clear_queue();
+ children = t.children;
+
+ //copy Text values
+ _antialiasing = t._antialiasing;
+ _color = t._color;
+ _font = t._font;
+ _text = t._text;
+ _width = t._width;
+
+ //reset pointer
+ free_surface();
+ refresh();
+}
+
+SDL_Surface* Text::draw_text(string txt) {
+ return draw_text(txt, _font, _color, _antialiasing);
+}
+
+SDL_Surface* Text::draw_text(string txt, TTF_Font* fnt, SDL_Color clr, bool aa) {
+ return (aa?TTF_RenderUTF8_Blended(fnt, txt.c_str(), clr)
+           :TTF_RenderUTF8_Solid(fnt, txt.c_str(), clr));
+}
+
+void Text::free_surface() {
+ if(_label) {
+  if(_label->texture())
+   glDeleteTextures(1, _label->texture());
+
+  delete _label;
+  _label = 0;
+ }
+}
+
+void Text::refresh() {
  if(_font==0) return;
  free_surface();
  SDL_Surface* _surf = 0;
@@ -46,7 +98,7 @@ void Text::redraw() {
      case 'n':
       int w, h;
       TTF_SizeUTF8(_font, ns.c_str(), &w, &h);
-      if(w<_width) {
+      if((unsigned int)w<_width) {
        part=ns;
        word="";
       } else {
@@ -66,7 +118,7 @@ void Text::redraw() {
    if(txt[i]==' ') {
     int w, h;
     TTF_SizeUTF8(_font, ns.c_str(), &w, &h);
-    if(w>=_width) {
+    if((unsigned int)w>=_width) {
      TTF_SizeUTF8(_font, part.c_str(), &w, &h);
      parts.push_back(part);
      y_pos.push_back(final_h);
@@ -84,7 +136,7 @@ void Text::redraw() {
    string ns = part+(part!=""?" ":"")+word;
    int w, h;
    TTF_SizeUTF8(_font, ns.c_str(), &w, &h);
-   if(w<_width) {
+   if((unsigned int)w<_width) {
     part=ns;
     word="";
    } else {
@@ -108,8 +160,8 @@ void Text::redraw() {
 
 
   //now draw it out
-  _surf = create_surface(SDL_SWSURFACE, final_w, final_h);
-  if(_surf==0) throw string("Failed creating new surface while drawed difficult text label.");
+  _surf = create_surface(final_w, final_h);
+  if(_surf==0) throw string("Unable to create a new surface to complete a difficult text label.");
   SDL_Rect dstrect;
   dstrect.x = 0;
   dstrect.y = 0;
@@ -117,106 +169,67 @@ void Text::redraw() {
    dstrect.y = y_pos[i];
    SDL_Surface* srf = draw_text(parts[i]);
    if(srf) {
-    SDL_SetAlpha(srf, 0, 0);
-    SDL_BlitSurface(srf, 0, _surf, &dstrect);
+    SDL_SetSurfaceBlendMode(srf, SDL_BLENDMODE_NONE);
+    SDL_BlitSurface(srf, NULL, _surf, &dstrect);
     SDL_FreeSurface(srf);
    }
   }
-  SDL_Flip(_surf);
+  //SDL_Flip(_surf);
  } else {
   _surf = draw_text(_text);
  }
- if(_surf) _image = surface_to_texture(_surf, false);
+ if(_surf) _label = surface_to_texture(_surf);
 }
 
-void Text::free_surface() {
- if(_image) {
-  if(_image->img()) {
-   glDeleteTextures(1, _image->img());
-   _image->set_img(0);
-  }
-  if(_image->bmp()) {
-   SDL_FreeSurface(_image->bmp());
-   _image->set_bmp(0);
-  }
-  delete _image;
-  _image = 0;
- }
+//}
+
+//{ PUBLIC METHODS
+
+void Text::redraw(int sx, int sy) {
+ if(_label==0) refresh();
+ if(_label==0) return;
+ draw_frame(*_label, sx+_x, sy+_y);
 }
 
-void Text::clone(const Text& t) {
- //copy Object
- _x = t._x;
- _y = t._y;
- _priority = t._priority;
- _destroy = t._destroy;
- _visible = t._visible;
- _enabled = t._enabled;
- //copy Text
- _font = t._font;
- _text = t._text;
- _color = t._color;
- _antialiased = t._antialiased;
- _width = t._width;
+//}
 
- //reset pointer
- free_surface();
- redraw();
-}
+//{ SETTERS
 
-SDL_Surface* Text::draw_text(string txt) {
- return draw_text(txt, _font, _color, _antialiased);
-}
-
-SDL_Surface* Text::draw_text(string txt, TTF_Font* fnt, SDL_Color clr, bool aa) {
- return (aa?TTF_RenderUTF8_Blended(fnt, txt.c_str(), clr)
-           :TTF_RenderUTF8_Solid(fnt, txt.c_str(), clr));
-}
-
-/*PUBLIC METHODS*/
-
-void Text::draw(int x, int y) {
- if(_image==0) redraw();
- if(_image==0) return;
- _image->draw(x,y);
-}
-
-/*SETTERS*/
-
-void Text::set_font(TTF_Font* fnt) {
- if(fnt!=0 && fnt!=_font) {
-  _font=fnt;
-  redraw();
- }
-}
-
-void Text::set_text(string txt) {
- if(txt!=_text) {
-  _text=txt;
-  redraw();
+void Text::set_antialiasing(bool aa) {
+ if(_antialiasing!=aa) {
+  _antialiasing=aa;
+  refresh();
  }
 }
 
 void Text::set_color(SDL_Color& clr) {
  if(clr.r!=_color.r || clr.g!=_color.g || clr.b!=_color.b) {
   _color=clr;
-  redraw();
+  refresh();
  }
 }
 
-void Text::set_antialias(bool aa) {
- if(_antialiased!=aa) {
-  _antialiased=aa;
-  redraw();
+void Text::set_font(TTF_Font* fnt) {
+ if(fnt!=0 && fnt!=_font) {
+  _font=fnt;
+  refresh();
  }
 }
 
-void Text::set_width(int w) {
- if(w<0) w=0; //0 - no width, more - have width, smaller - equals to 0
+void Text::set_text(string txt) {
+ if(txt!=_text) {
+  _text=txt;
+  refresh();
+ }
+}
+
+void Text::set_width(unsigned int w) {
  if(_width!=w) {
   _width=w;
-  redraw();
+  refresh();
  }
 }
+
+//}
 
 } }

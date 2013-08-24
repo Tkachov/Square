@@ -1,0 +1,44 @@
+#include "Index_Screen.h"
+#include "../Engine/Main_Window.h"
+#include "../Engine/Resources.h"
+#include "../Engine/Data/Frame.h"
+#include "../Engine/Entities/Sprite.h"
+using Engine::Input;
+using Engine::Main_Window;
+using Engine::Resources;
+using Engine::Data::Frame;
+using Engine::Entities::Sprite;
+
+Index_Screen::Index_Screen(Controller* controller): Screen(controller) {
+ Frame* f = Resources::load_texture("res/img/GUI/Index_Screen/background.png");
+ add_entity(new Sprite(controller, *f));
+ add_button(336, 416, String_Table::translate["exit_game"], new Functor<Index_Screen>(this, &Index_Screen::fnc_exit));
+}
+
+Button* Index_Screen::add_button(int x, int y, string text, functor* f, int pr) {
+ ///creating unique designed button in run-time
+ Button* b = new Button(controller);
+ //provide images for up, over, pressed & disabled states (respectively)
+ b->set_states(Resources::make_sprite("res/img/GUI/Index_Screen/button.png"),
+               Resources::make_sprite("res/img/GUI/Index_Screen/button_over.png"),
+               Resources::make_sprite("res/img/GUI/Index_Screen/button_pressed.png"),
+               Resources::make_sprite("res/img/GUI/Index_Screen/button_pressed.png"));
+ SDL_Color c;
+ c.r=c.g=c.b=255;
+ b->set_label(c, Resources::load_font("Tahoma", 14), text); //use white Tahoma 14
+ b->set_x(x);
+ b->set_y(y);
+ if(f) b->set_func(f); //attach function to button's press event
+ //now set priority and add object to queue
+ b->set_priority(pr);
+ add_entity(b);
+ return b;
+}
+
+void Index_Screen::fnc_exit() {
+ controller->stop_loop();
+}
+
+void Index_Screen::update_after_queue(int x, int y) {
+ if(Input::quit() || Input::key_release(SDLK_ESCAPE)) controller->stop_loop();
+}

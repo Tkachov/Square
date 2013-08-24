@@ -1,7 +1,8 @@
-#include "utils.h"
-#include "logger.h"
-#include "Data\string_table.h"
 #include <fstream>
+#include <cstdio>
+#include "utils.h"
+#include "Logger.h"
+#include "Data\String_Table.h"
 using std::ifstream;
 using Engine::Logger;
 using Engine::Data::String_Table;
@@ -69,7 +70,7 @@ namespace Engine {
   return unit_tex[x][y];
  }
 
- SDL_Surface* create_surface(int flags, int w, int h, int bits) {
+ SDL_Surface* create_surface(int w, int h, int bits) {
   Uint32 rmask, gmask, bmask, amask;
   #if SDL_BYTEORDER == SDL_BIG_ENDIAN
    rmask = 0xff000000;
@@ -82,71 +83,111 @@ namespace Engine {
    bmask = 0x00ff0000;
    amask = 0xff000000;
   #endif
-  return SDL_CreateRGBSurface(flags, w, h, bits, rmask, gmask, bmask, amask);
+  return SDL_CreateRGBSurface(0, w, h, bits, rmask, gmask, bmask, amask);
  }
 
- SDL_Surface* create_surface(SDL_Surface* to_replace, int flags, int w, int h, int bits) {
-  if(to_replace!=0) SDL_FreeSurface(to_replace);
-  to_replace = create_surface(flags, w, h, bits);
+ SDL_Surface* create_surface(SDL_Surface* to_replace, int w, int h, int bits) {
+  if(to_replace) SDL_FreeSurface(to_replace);
+  to_replace = create_surface(w, h, bits);
   return to_replace;
  }
 
- void blend_surface(SDL_Surface* surface, Uint32 alpha) {
-  //do not repeat this trick at home (it may be slow & dangerous)
-  if(alpha<0||alpha>255) alpha=255;
-  Uint32 bpp = surface->format->BytesPerPixel;
-  if(bpp!=4) return;
-  SDL_LockSurface(surface);
-  Uint8 r,g,b,a;
-  Uint8 *p = (Uint8*)surface->pixels;
-  Uint32 sz = surface->w * surface->h;
-  for(Uint32 c=0; c<sz; ++c, p+=bpp) {
-   SDL_GetRGBA(*(Uint32*)p, surface->format, &r,&g,&b, &a);
-   Uint32 np = 0;
-   Uint32 al = ((Uint32)a)*alpha/255;
-   #if SDL_BYTEORDER == SDL_BIG_ENDIAN
-    np += (r<<24) + (g<<16) + (b<<8) + (al);
-   #else
-    np += (al<<24) + (b<<16) + (g<<8) + (r);
-   #endif
-   *(Uint32*)p = np;
-  }
-  SDL_UnlockSurface(surface);
- }
-
- Image* surface_to_texture(SDL_Surface* src, bool delete_after_transform) {
+ Frame* surface_to_texture(SDL_Surface* src, bool delete_after_transform) {
+  //prepare new size (must be power of 2)
   int _w, _h, nw, nh;
   _w = src->w;
   _h = src->h;
   nw = nearest2(_w);
   nh = nearest2(_h);
-  SDL_Surface* temp = create_surface(SDL_SWSURFACE, nw, nh);
-  SDL_SetAlpha(src, 0, 0);
-  SDL_Rect dstrect;
-  dstrect.x = dstrect.y = 0;
-  SDL_BlitSurface(src, 0, temp, &dstrect);
-  SDL_Flip(temp);
-  if(delete_after_transform) {SDL_FreeSurface(src); src=0;}
 
+  //transfer original surface to a new one (with new size)
+  SDL_Surface* temp = create_surface(nw, nh);
+  SDL_Rect dst; dst.x = dst.y = 0;
+  SDL_SetSurfaceBlendMode(src, SDL_BLENDMODE_NONE);
+  SDL_BlitSurface(src, NULL, temp, &dst);
+
+  //delete if necessary
+  if(delete_after_transform) {
+   SDL_FreeSurface(src);
+   src=0;
+  }
+
+  //make a mask of transparent pixels
+  vector< vector<bool> > mask;
+  mask.resize(_w);
+  for(int i=0; i<_w; ++i)
+   mask[i].resize(_h);
+  for(int i=0; i<_w; ++i)
+   for(int j=0; j<_h; ++j)
+    mask[i][j] = (get_color_a(temp,i,j)!=0);
+
+  //set the format
   int format = GL_RGBA;
   if(temp->format->BitsPerPixel == 24) format = GL_RGB;
 
+  //bind a new GL-texture
   GLuint* p = new GLuint();
   glGenTextures(1, p);
   glBindTexture(GL_TEXTURE_2D, *p);
 
+  //setup GL
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);//GL_NEAREST - without filtration
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);//GL_LINEAR - causes border bugs
-  //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP );
-  //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP );
+  //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP ); //may be necessary in case of
+  //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP ); //non-power of 2 size
 
+  //transform new surface into a texture and free that surface
   glTexImage2D(GL_TEXTURE_2D, 0, format, nw, nh, 0, format, GL_UNSIGNED_BYTE, temp->pixels);
   SDL_FreeSurface(temp);
-  return new Image(p,src,_w,_h,nw,nh);
+
+  //return a frame containing whole texture (note that it knows original size)
+  return new Frame(p, nw, nh, 0, 0, _w, _h, mask);
  }
 //}
 
 //{ DRAWING [OpenGL]
+
+//{ FRAMES
+
+void draw_frame(Frame& frame, float x, float y, float alpha, float angle, bool center) {
+ draw_frame(frame, x, y, frame.width(), frame.height(), alpha, angle, center);
+}
+
+void draw_frame(Frame& frame, float x, float y, SDL_Color color, float alpha, float angle, bool center) {
+ draw_frame(frame, x, y, frame.width(), frame.height(), color, alpha, angle, center);
+}
+
+namespace {
+
+void _draw_frame(Frame& frame, float& x, float& y, float& w, float& h, float& angle, bool center) {
+ glBindTexture(GL_TEXTURE_2D, *frame.texture());
+ float nx_shift=frame.x_shift(), ny_shift=frame.y_shift();
+ nx_shift*=(w/float(frame.width()));
+ ny_shift*=(h/float(frame.height()));
+ draw_texture(
+  frame.texture_width(), frame.texture_height(),
+  frame.left(), frame.top(), frame.width(), frame.height(),
+  x+int(nx_shift), y+int(ny_shift), w, h,
+  angle, center
+ );
+}
+
+}
+
+void draw_frame(Frame& frame, float x, float y, float w, float h, float alpha, float angle, bool center) {
+ glColor4f(1, 1, 1, alpha);
+ _draw_frame(frame, x, y, w, h, angle, center);
+}
+
+void draw_frame(Frame& frame, float x, float y, float w, float h, SDL_Color color, float alpha, float angle, bool center) {
+ glColor4f(float(color.r)/255.0f, float(color.g)/255.0f, float(color.b)/255.0f, alpha);
+ _draw_frame(frame, x, y, w, h, angle, center);
+}
+
+//}
+
+//{ TEXTURES
+
 void draw_texture(float x, float y, float w, float h, bool center) {
  draw_texture(w,h,0,0,w,h,x,y,w,h,0,center);
 }
@@ -173,35 +214,42 @@ void draw_texture(float W,//whole texture sizes
 
   glTranslatef(x,y,0);
   glRotatef(angle,0,0,-1);
-
   if(center) {glTranslatef(-dX/2,-dY/2,0);}
 
   glBegin(GL_QUADS);
-
    glTexCoord2f((t_x/W),(t_y/H));               glVertex2f(0, 0); //top-left
    glTexCoord2f((t_x/W),((t_y+t_dy)/H));        glVertex2f(0, dY);//bottom-left
    glTexCoord2f(((t_x+t_dx)/W),((t_y+t_dy)/H)); glVertex2f(dX,dY);//bottom-right
    glTexCoord2f(((t_x+t_dx)/W),(t_y/H));        glVertex2f(dX, 0);//top-right
-
   glEnd();
+
+  glRotatef(-angle,0,0,-1);
   glTranslatef(-x,-y,0);
   if(center) {glTranslatef(dX/2,dY/2,0);}
  }
 
- void draw_rectangle(int x, int y, int w, int h) {
-  glDisable(GL_TEXTURE_2D);
-  glTranslatef(x,y,0);
-  glBegin(GL_POLYGON);
-   glVertex2f(0,0);
-   glVertex2f(0,h);
-   glVertex2f(w,h);
-   glVertex2f(w,0);
-  glEnd();
-  glTranslatef(-x,-y,0);
- }
+ //}
+
+//{ GEOMETRY
+
+void draw_rectangle(int x, int y, int w, int h) {
+ glDisable(GL_TEXTURE_2D);
+ glTranslatef(x,y,0);
+ glBegin(GL_POLYGON);
+  glVertex2f(0,0);
+  glVertex2f(0,h);
+  glVertex2f(w,h);
+  glVertex2f(w,0);
+ glEnd();
+ glTranslatef(-x,-y,0);
+}
+
 //}
 
-//{ STUFF
+//}
+
+//{ MATH
+
  unsigned int nearest2(unsigned int a) {
   if(!is_power2(a)) {
    unsigned int p = 1;
@@ -210,12 +258,22 @@ void draw_texture(float W,//whole texture sizes
   }
   return a;
  }
- bool is_power2(unsigned int v) { return ((v&(v-1))==0); }
+
+ bool is_power2(unsigned int v) {
+  return ((v&(v-1))==0);
+ }
+
 //}
 
 //{ FILES
+
  bool file_exists(const char* fn) {
   ifstream f(fn);
+  return f;
+ }
+
+ bool file_exists(string& fn) {
+  ifstream f(fn.c_str());
   return f;
  }
 
@@ -236,9 +294,93 @@ void draw_texture(float W,//whole texture sizes
   if(s.length()>0 && s[s.length()-1]=='\"') s.erase(s.length()-1,1);
   return s;
  }
+
+ bool delete_file(const char* name) {
+  if(!file_exists(name)) return false;
+  return (std::remove(name)==0);
+ }
+
+ bool delete_file(string& name) {
+  return delete_file(name.c_str());
+ }
 //}
 
 //{ STRINGS and NUMBERS
+
+template<class V> V abs(V v) { return (v>V(0)?v:-v); }
+
+void itoa(int value, char* buf, int base) {
+ string res = to_string(value, base);
+ for(unsigned int i=0; i<=res.length(); ++i)
+  if(i<res.length()) buf[i]=res[i];
+  else buf[i]='\0';
+}
+
+int atoi(const char* buf) {
+ return to_int(buf);
+}
+
+int to_int(string s) {
+ int res = 0;
+ short int sign = 1;
+ unsigned int md = 1;
+ for(int i=s.length()-1; i>=0; --i) {
+  char c = s[i];
+  if(i==0) {
+   if(c=='+') break;
+   if(c=='-') {sign*=-1; break;}
+  }
+  if('0'<=c && c<='9') {
+   res+=(int(c)-int('0'))*md;
+   md*=10;
+  }
+ }
+ return res*sign;
+}
+
+string to_string(int value, int base) {
+ string res = "";
+ int prevd = 1;
+ int delim = base;
+ while(value) {
+  int d = value%delim;
+  value-=d;
+  int digit = d/prevd;
+  res=(digit<10?char(int('0')+digit):char(int('a')+digit-10)) + res;
+  prevd=delim;
+  delim*=base;
+ }
+ return res;
+}
+
+string unichar(Uint16 v) {
+ if((v&0xFF80)==0) {
+  char c = char(v&0x7F);
+  string s = ""; s+=c;
+  return s;
+ } else {
+  char buf[20];
+  itoa(v,buf,10);
+  string k = buf;
+  string c = String_Table::unicode[k];
+  if(c.length()) return c;
+  else Logger::log << "unknown char " << v << "\n";
+ }
+ return "";
+}
+
+bool letters_equal(string a, string b) {
+ if(a.length()!=b.length()) return false;
+ for(unsigned int i=0; i<a.length(); ++i) {
+  char ca = a[i];
+  char cb = b[i];
+  if(ca>='A'&&ca<='Z') ca=char(int(ca)-int('A')+int('a'));
+  if(cb>='A'&&cb<='Z') cb=char(int(cb)-int('A')+int('a'));
+  if(ca!=cb) return false;
+ }
+ return true;
+}
+
 string thousands(int n) {
  string sign = "";
  if(n<0) {sign="-"; n*=-1;}
@@ -272,53 +414,10 @@ string thousands(int n) {
  return res;
 }
 
-int toint(string s) {
- int res = 0;
- unsigned int md = 1;
- for(int i=s.length()-1; i>=0; --i) {
-  char c = s[i];
-  if(i==0) {
-   if(c=='+') break;
-   if(c=='-') {res*=-1; break;}
-  }
-  if('0'<=c && c<='9') {
-   res+=(int(c)-int('0'))*md;
-   md*=10;
-  }
- }
- return res;
-}
-
-string unichar(Uint16 v) {
- if((v&0xFF80)==0) {
-  char c = char(v&0x7F);
-  string s = ""; s+=c;
-  return s;
- } else {
-  char buf[20];
-  itoa(v,buf,10);
-  string k = buf;
-  string c = String_Table::unicode[k];
-  if(c.length()) return c;
-  else Logger::log << "unknown char " << v << "\n";
- }
- return "";
-}
-
-bool letters_equal(string a, string b) {
- if(a.length()!=b.length()) return false;
- for(unsigned int i=0; i<a.length(); ++i) {
-  char ca = a[i];
-  char cb = b[i];
-  if(ca>='A'&&ca<='Z') ca=char(int(ca)-int('A')+int('a'));
-  if(cb>='A'&&cb<='Z') cb=char(int(cb)-int('A')+int('a'));
-  if(ca!=cb) return false;
- }
- return true;
-}
 //}
 
 //{ PATH SEARCH
+
 stack<int> A_star(int fx, int fy, int tx, int ty, vector< vector<bool> >& obstacles, int usualcost, int diagcost) {
  int tw = obstacles.size();
  int th = obstacles[0].size();
@@ -413,5 +512,6 @@ stack<int> A_star(int fx, int fy, int tx, int ty, vector< vector<bool> >& obstac
 
  return path;
 }
+
 //}
 }
