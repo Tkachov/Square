@@ -8,99 +8,102 @@
 		<Build>
 			<Target title="Release">
 				<Option output="../bin/template" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../bin/" />
+				<Option working_dir="../bin" />
 				<Option object_output="../obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add option="-DDEBUG_H" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 				</Linker>
 			</Target>
 			<Target title="Debug">
-				<Option output="../bin/DEBUG_template" prefix_auto="1" extension_auto="1" />
+				<Option output="../bin/template_DEBUG" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="../bin/" />
 				<Option object_output="../obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG_MODE" />
+				</Compiler>
+				<Linker>
+					<Add option="-mconsole" />
+				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
-			<Add option="-DNO_STDIO_REDIRECT" />
-			<Add directory="$(#sdl.include)/SDL" />
-			<Add directory="D:/Programs/CodeBlocks_x86/MinGW/include" />
+			<Add option="-c" />
+			<Add directory="$(#sdl2.include)" />
 		</Compiler>
 		<Linker>
 			<Add option="../res/icon.res" />
+			<Add option="-mwindows" />
 			<Add library="mingw32" />
-			<Add library="SDL.dll" />
-			<Add library="user32" />
-			<Add library="gdi32" />
-			<Add library="winmm" />
-			<Add library="dxguid" />
-			<Add library="SDL_image" />
-			<Add library="SDL_ttf" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add library="SDL2_image" />
+			<Add library="SDL2_ttf" />
 			<Add library="OpenGL32" />
 			<Add library="glu32" />
-			<Add directory="$(#sdl.lib)" />
-			<Add directory="D:/Programs/CodeBlocks_x86/MinGW/lib" />
+			<Add directory="$(#sdl2.lib)" />
 		</Linker>
-		<Unit filename="Engine/Data/string_table.cpp" />
-		<Unit filename="Engine/Data/string_table.h" />
-		<Unit filename="Engine/Objects/button.cpp" />
-		<Unit filename="Engine/Objects/button.h" />
-		<Unit filename="Engine/Objects/fade_effect.cpp" />
-		<Unit filename="Engine/Objects/fade_effect.h" />
-		<Unit filename="Engine/Objects/image.cpp" />
-		<Unit filename="Engine/Objects/image.h" />
-		<Unit filename="Engine/Objects/object.h" />
-		<Unit filename="Engine/Objects/sprite.cpp" />
-		<Unit filename="Engine/Objects/sprite.h" />
-		<Unit filename="Engine/Objects/text.cpp" />
-		<Unit filename="Engine/Objects/text.h" />
-		<Unit filename="Engine/Objects/timer.h" />
-		<Unit filename="Engine/Objects/window.cpp" />
-		<Unit filename="Engine/Objects/window.h" />
-		<Unit filename="Engine/SDL_win32_main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Engine/debug.h" />
-		<Unit filename="Engine/functor.h" />
-		<Unit filename="Engine/game.cpp" />
-		<Unit filename="Engine/game.h" />
-		<Unit filename="Engine/input.cpp" />
-		<Unit filename="Engine/input.h" />
-		<Unit filename="Engine/loader.cpp" />
-		<Unit filename="Engine/loader.h" />
-		<Unit filename="Engine/logger.cpp" />
-		<Unit filename="Engine/logger.h" />
-		<Unit filename="Engine/screen.cpp" />
-		<Unit filename="Engine/screen.h" />
-		<Unit filename="Engine/state.cpp" />
-		<Unit filename="Engine/state.h" />
+		<Unit filename="Engine/Application.cpp" />
+		<Unit filename="Engine/Application.h" />
+		<Unit filename="Engine/Controller.cpp" />
+		<Unit filename="Engine/Controller.h" />
+		<Unit filename="Engine/Data/Frame.cpp" />
+		<Unit filename="Engine/Data/Frame.h" />
+		<Unit filename="Engine/Data/String_Table.cpp" />
+		<Unit filename="Engine/Data/String_Table.h" />
+		<Unit filename="Engine/Entities/Button.cpp" />
+		<Unit filename="Engine/Entities/Button.h" />
+		<Unit filename="Engine/Entities/Entity.cpp" />
+		<Unit filename="Engine/Entities/Entity.h" />
+		<Unit filename="Engine/Entities/Fade.cpp" />
+		<Unit filename="Engine/Entities/Fade.h" />
+		<Unit filename="Engine/Entities/Screen.cpp" />
+		<Unit filename="Engine/Entities/Screen.h" />
+		<Unit filename="Engine/Entities/Sprite.cpp" />
+		<Unit filename="Engine/Entities/Sprite.h" />
+		<Unit filename="Engine/Entities/Text.cpp" />
+		<Unit filename="Engine/Entities/Text.h" />
+		<Unit filename="Engine/Entities/Timer.h" />
+		<Unit filename="Engine/Entities/Window.cpp" />
+		<Unit filename="Engine/Entities/Window.h" />
+		<Unit filename="Engine/Functor.h" />
+		<Unit filename="Engine/Global/ScreenID.cpp" />
+		<Unit filename="Engine/Global/ScreenID.h" />
+		<Unit filename="Engine/Global/all.h" />
+		<Unit filename="Engine/Global/load_string_tables.cpp" />
+		<Unit filename="Engine/Global/load_string_tables.h" />
+		<Unit filename="Engine/Input.cpp" />
+		<Unit filename="Engine/Input.h" />
+		<Unit filename="Engine/Logger.cpp" />
+		<Unit filename="Engine/Logger.h" />
+		<Unit filename="Engine/Loop.cpp" />
+		<Unit filename="Engine/Loop.h" />
+		<Unit filename="Engine/Main_Window.cpp" />
+		<Unit filename="Engine/Main_Window.h" />
+		<Unit filename="Engine/Resources.cpp" />
+		<Unit filename="Engine/Resources.h" />
+		<Unit filename="Engine/State.cpp" />
+		<Unit filename="Engine/State.h" />
+		<Unit filename="Engine/settings.h" />
 		<Unit filename="Engine/utils.cpp" />
 		<Unit filename="Engine/utils.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="screens/first_screen.cpp" />
-		<Unit filename="screens/first_screen.h" />
+		<Unit filename="screens/Index_Screen.cpp" />
+		<Unit filename="screens/Index_Screen.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
-			<DoxyBlocks>
-				<comment_style block="0" line="0" />
-				<doxyfile_project />
-				<doxyfile_build />
-				<doxyfile_warnings />
-				<doxyfile_output />
-				<doxyfile_dot />
-				<general />
-			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
