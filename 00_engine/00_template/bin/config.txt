@@ -1,0 +1,6 @@
+﻿
+fullscreen	=	0
+height	=	600
+language	=	English
+width	=	800
+

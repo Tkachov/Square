@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Square Engine Template" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="../bin/template" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../bin" />
+				<Option object_output="../obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Debug">
+				<Option output="../bin/template_DEBUG" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../bin/" />
+				<Option object_output="../obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG_MODE" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-c" />
+			<Add option="-lGLESv1_CM" />
+			<Add option="-DDISABLE_IMPORTGL" />
+			<Add directory="$(#sdl2.include)" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add library="SDL2_image" />
+			<Add library="SDL2_ttf" />
+			<Add library="OpenGL32" />
+			<Add directory="$(#sdl2.lib)" />
+		</Linker>
+		<Unit filename="Engine/Application.cpp" />
+		<Unit filename="Engine/Application.h" />
+		<Unit filename="Engine/Controller.cpp" />
+		<Unit filename="Engine/Controller.h" />
+		<Unit filename="Engine/Data/Frame.cpp" />
+		<Unit filename="Engine/Data/Frame.h" />
+		<Unit filename="Engine/Data/String_Table.cpp" />
+		<Unit filename="Engine/Data/String_Table.h" />
+		<Unit filename="Engine/Data/safe_wstream.cpp" />
+		<Unit filename="Engine/Data/safe_wstream.h" />
+		<Unit filename="Engine/Data/wstream.cpp" />
+		<Unit filename="Engine/Data/wstream.h" />
+		<Unit filename="Engine/Entities/Button.cpp" />
+		<Unit filename="Engine/Entities/Button.h" />
+		<Unit filename="Engine/Entities/Entity.cpp" />
+		<Unit filename="Engine/Entities/Entity.h" />
+		<Unit filename="Engine/Entities/Fade.cpp" />
+		<Unit filename="Engine/Entities/Fade.h" />
+		<Unit filename="Engine/Entities/Screen.cpp" />
+		<Unit filename="Engine/Entities/Screen.h" />
+		<Unit filename="Engine/Entities/Sprite.cpp" />
+		<Unit filename="Engine/Entities/Sprite.h" />
+		<Unit filename="Engine/Entities/Text.cpp" />
+		<Unit filename="Engine/Entities/Text.h" />
+		<Unit filename="Engine/Entities/Timer.h" />
+		<Unit filename="Engine/Entities/Window.cpp" />
+		<Unit filename="Engine/Entities/Window.h" />
+		<Unit filename="Engine/Functor.h" />
+		<Unit filename="Engine/Global/ScreenID.cpp" />
+		<Unit filename="Engine/Global/ScreenID.h" />
+		<Unit filename="Engine/Global/all.h" />
+		<Unit filename="Engine/Global/load_string_tables.cpp" />
+		<Unit filename="Engine/Global/load_string_tables.h" />
+		<Unit filename="Engine/Input.cpp" />
+		<Unit filename="Engine/Input.h" />
+		<Unit filename="Engine/Logger.cpp" />
+		<Unit filename="Engine/Logger.h" />
+		<Unit filename="Engine/Loop.cpp" />
+		<Unit filename="Engine/Loop.h" />
+		<Unit filename="Engine/Main_Window.cpp" />
+		<Unit filename="Engine/Main_Window.h" />
+		<Unit filename="Engine/Resources.cpp" />
+		<Unit filename="Engine/Resources.h" />
+		<Unit filename="Engine/State.cpp" />
+		<Unit filename="Engine/State.h" />
+		<Unit filename="Engine/settings.h" />
+		<Unit filename="Engine/utils.cpp" />
+		<Unit filename="Engine/utils.h" />
+		<Unit filename="importgl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="importgl.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="screens/Index_Screen.cpp" />
+		<Unit filename="screens/Index_Screen.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
