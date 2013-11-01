@@ -19,7 +19,7 @@ There are **Fade_Mode** enum, which has the following values:
      functor* f = 0,
      int x = 0, int y = 0, int priority = 0
     )
-Constructor, creates new Fade with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **width*****height** rectangle of color **color**.  
+Constructor, creates new Fade with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **width** × **height** rectangle of color **color**.  
 
 ----
 ##### `Fade(...)`

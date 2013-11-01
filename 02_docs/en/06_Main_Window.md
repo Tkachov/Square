@@ -8,7 +8,6 @@ Almost all of it's functions are static, so you can call them whereever you want
 
 ## Functions  
 
-----
 ##### `static void create(...)`
     static void create(
      const char* title,

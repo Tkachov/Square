@@ -21,7 +21,7 @@ Default application's window's height.
 ----
 
 ##### `DEFAULT_FULLSCREEN`
-Default application's [fullscreen mode](06_Main_Window.md#static-void-createconst-char-title-int-x-int-y-int-w-int-h-string-fullscreen-int-flags--0).  
+Default application's [fullscreen mode](06_Main_Window.md#static-void-create).  
 
 ----
 
@@ -97,7 +97,7 @@ If equals 1, sprite loading will be logged.
 ----
 ##### `DEBUG_LOG_IMAGE_LOADING`
 If equals 1, texture loading will be logged.  
-(Look **[Resources::load_texture()](07_Resources.md#image-load_texturestring-filename)** function.)  
+(Look **[Resources::load_texture()](07_Resources.md#frame-load_texturestring-filename)** function.)  
 
 ----
 ##### `DEBUG_LOG_STRING_TABLES`

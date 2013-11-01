@@ -26,7 +26,7 @@ Returns the value for given key.
 Returns "" if the key is not defined.  
 
 ----
-##### `string operator()(...)
+##### `string operator()(...)`
     string operator()(
      string key,
      string* s0 = 0, string* s1 = 0, string* s2 = 0, string* s3 = 0,

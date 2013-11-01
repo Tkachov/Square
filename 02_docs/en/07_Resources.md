@@ -9,12 +9,12 @@ Resources class loads and storages resources. It won't load a file if it was alr
 ##### `Frame* load_texture(string filename)`
 Loads an image from the file with given filename and returns [Frame](12_Frame.md) object that contains loaded OpenGL texture's ID.  
 If loading fails, throws a string with error description.  
-Prints messages if **[DEBUG_LOG_IMAGE_LOADING](22_settings_h.md#debug_log_image_loading)** is equals 1.  
+Prints messages if **[DEBUG_LOG_IMAGE_LOADING](22_settings_h.md#debug_log_image_loading)** equals 1.  
 
 ----
 ##### `Sprite load_sprite(string filename)`
 Loads a file with given name, creates a [Sprite](15_Sprite.md) object which contains corresponds to a sprite [described in this file](07_Resources.md#sprite-file-structure) and returns this Sprite object. All sprite's frames are loaded using **[load_texture()](07_Resources.md#frame-load_texturestring-filename)**.  
-Prints messages if **[DEBUG_LOG_SPRITE_LOADING](22_settings_h.md#debug_log_sprite_loading)** is equals 1. 
+Prints messages if **[DEBUG_LOG_SPRITE_LOADING](22_settings_h.md#debug_log_sprite_loading)** equals 1. 
 
 ----
 ##### `TTF_Font* load_font(string name, int size)`

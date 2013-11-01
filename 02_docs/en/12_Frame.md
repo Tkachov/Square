@@ -13,7 +13,7 @@ Frame class is used by engine to storage textures and information about it. Obje
      vector< vector<char> >& mask,
      int x_shift = 0, int y_shift = 0
     )
-Constructs a Frame with OpenGL's texture ID **gl_texture** (which has size **width*****height**). This Frame will use rectangle area from **left**, **top** to **right**, **bottom** of the texture. It also takes mask array where 0 means transparent pixel and 1 means non-transparent. You can also provide offset values by X and Y axes for this frame. 
+Constructs a Frame with OpenGL's texture ID **gl_texture** (which has size **width** × **height**). This Frame will use rectangle area from **left**, **top** to **right**, **bottom** of the texture. It also takes mask array where 0 means transparent pixel and 1 means non-transparent. You can also provide offset values by X and Y axes for this frame. 
 
 ----
 ##### `GLuint* texture()`
