@@ -13,7 +13,7 @@ State's functions are static, so you can use those from any place you want to.
 ## Functions  
 
 ##### `static void* persistent(string first_key, string second_key)`
-Returns the pointer to the variable for given **first_key**, **second_key** pair. If there is no variable for given pair, returns 0 (or throws a string if **[DEBUG_EXCEPTION_ON_UNALLOCATED_VARIABLE](22_settings_h.md#debug_exception_on_unallocated_variable)** is defined).  
+Returns the pointer to the variable for given **first_key**, **second_key** pair. If there is no variable for given pair, returns 0 (or throws a string if **[DEBUG_EXCEPTION_ON_UNALLOCATED_VARIABLE](22_settings_h.md#debug_exception_on_unallocated_variable)** equals 1).  
 (You'll have to cast returned **void*** pointer to type you need. Assumed you know the type of requested variable.)  
 
 ----

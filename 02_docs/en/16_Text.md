@@ -10,7 +10,14 @@ If label's width is 0, text won't have limited width. Otherwise text will be car
 
 ## Functions  
 
-##### `Text(Controller*, TTF_Font*, string = "", unsigned int w = 0, SDL_Color = SDL_Color(), int x = 0, int y = 0, int priority = 0)`
+##### `Text(...)`
+    Text(
+     Controller*,
+     TTF_Font*,
+     string text = "", unsigned int width = 0,
+     SDL_Color color = SDL_Color(),
+     int x = 0, int y = 0, int priority = 0
+    )
 Constructor, that passes [Controller](05_Controller.md) to Entity's constructor, requires a font and can also get default text, label's width, color, position and priority.  
 
 ----

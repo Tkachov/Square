@@ -17,8 +17,8 @@ Constructor, loads the key-value pairs from given file.
 ##### `void push_table(string table)`
 Adds key-value pairs from given file to the table.  
 If no file found, the table will not change.  
-(If **[DEBUG_LOG_WARNINGS](22_settings_h.md#debug_log_warnings)** is defined warnings will be produced if file is not found or there are invalid or recursive keys.)  
-(If **[DEBUG_LOG_STRING_TABLES](22_settings_h.md#debug_log_string_tables)** is defined, will print whole table after loading.)  
+(If **[DEBUG_LOG_WARNINGS](22_settings_h.md#debug_log_warnings)** equals 1, warnings will be produced if file is not found or there are invalid or recursive keys.)  
+(If **[DEBUG_LOG_STRING_TABLES](22_settings_h.md#debug_log_string_tables)** equals 1, will print whole table after loading.)  
 
 ----
 ##### `string operator[](string key)`
@@ -26,7 +26,12 @@ Returns the value for given key.
 Returns "" if the key is not defined.  
 
 ----
-##### `string operator()(string key, string* s0 = 0, string* s1 = 0, string* s2 = 0, string* s3 = 0, string* ss = 0)`
+##### `string operator()(...)
+    string operator()(
+     string key,
+     string* s0 = 0, string* s1 = 0, string* s2 = 0, string* s3 = 0,
+     string* ss = 0
+    )
 Return the value for given key. If value contains %0%, %1%, %2%, etc, those will be replaced with **s0**, **s1**, **s2**, etc. **ss** is an array of strings. So, %4% is replaced with **ss[0]**, %5% — **ss[1]**, etc.  
 If the parameter is not defined (i.e. the pointer equals to 0), corresponding place will contain "".  
 Returns "" if the key is not defined.  

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sprite class should be used to draw images and animations on the display. It inherits [Entity](04_Entity.md) class. Sprites can be created manually, though it's recommended to load it using **[Resources::load_sprite()](09_Resources.md#sprite-load_spritestring-filename)** function.
+Sprite class should be used to draw images and animations on the display. It inherits [Entity](04_Entity.md) class. Sprites can be created manually, though it's recommended to load it using **[Resources::load_sprite()](07_Resources.md#sprite-load_spritestring-filename)** function.
 
 ## Functions
 

@@ -16,9 +16,9 @@ Please note that there is no Russian documentation and examples for 0.3.0 versio
 
 ## API changing (08/24/13)
 
-Square's API is not stable yet and can change dramatically from one version to another.
-The 0.2.0 version is based on SDL 2.0.0 and is not backwards-compatible.
-Version 0.1.0 was based on SDL 1.2.14 and is obsolete now.
+Square's API is not stable yet and can change dramatically from one version to another.  
+The 0.2.0 version is based on SDL 2.0.0 and is not backwards-compatible.  
+Version 0.1.0 was based on SDL 1.2.14 and is obsolete now.  
 
 ## Repository contents
 

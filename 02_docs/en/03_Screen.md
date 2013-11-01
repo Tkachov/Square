@@ -41,7 +41,7 @@ Screen class' **id()** returns **s_UNKNOWN_ID**, which is defined in ScreenID.h 
 
 ----
 ##### `bool is_static()`
-This function returns whether Screen is static or not. Every Screen contains a **_static** member which can be set to a **true** or **false** in constructor.
+This function returns whether Screen is static or not. Every Screen contains bool **_static** member which can be set to a **true** or **false** in constructor.
 Screen class' returns **false**.
 
 
@@ -52,4 +52,4 @@ Every Screen should have an index. Those are defined in ScreenID.h file. When yo
    
 **Previous file:** [Workflow](02_Workflow.md)  
 **[Contents](00_Contents.md)**  
-**Next file:** [Object class](04_Object.md)
+**Next file:** [Entity class](04_Entity.md)

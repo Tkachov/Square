@@ -53,36 +53,59 @@ Converts given **src** SDL's bitmap surface to OpenGL texture and returns [Frame
 If **delete_after_transform** is **true**, it will free **src** after convertion.  
 
 ----
+#### `void draw_frame(...)`
 
-##### `void draw_frame(Frame& frame, float x, float y, float alpha = 1.0f, float angle = 0, bool center = false)`
+    void draw_frame(
+     Frame& frame,
+     float x, float y,
+     float alpha = 1.0f, float angle = 0, bool center = false
+    )
 Draws given Frame on the screen in given position, with given transparency and angle. If **center** is **true**, center of texture will be in given position.
 
 ----
-
-##### `void draw_frame(Frame& frame, float x, float y, SDL_Color blend, float alpha = 1.0f, float angle = 0, bool center = false)`
+    void draw_frame(
+     Frame& frame,
+     float x, float y,
+     SDL_Color blend, float alpha = 1.0f,
+     float angle = 0, bool center = false
+    )
 Draws given Frame on the screen in given position, with given transparency and angle. It will be blended with given color. If **center** is **true**, center of texture will be in given position.
 
 ----
-
-##### `void draw_frame(Frame& frame, float x, float y, float w, float h, float alpha = 1.0f, float angle = 0, bool center = false)`
+    void draw_frame(
+     Frame& frame,
+     float x, float y, float w, float h,
+     float alpha = 1.0f, float angle = 0, bool center = false
+    )
 Draws given Frame on the screen in given position, with given size, transparency and angle. If **center** is **true**, center of texture will be in given position.
 
 ----
-
-##### `void draw_frame(Frame& frame, float x, float y, float w, float h, SDL_Color blend, float alpha = 1.0f, float angle = 0, bool center = false)`
+    void draw_frame(
+     Frame& frame,
+     float x, float y, float w, float h,
+     SDL_Color blend, float alpha = 1.0f,
+     float angle = 0, bool center = false
+    )
 Draws given Frame on the screen in given position, with given size, transparency and angle. It will be blended with given color. If **center** is **true**, center of texture will be in given position.
 
 ----
+#### `void draw_texture(...)`
 
-##### `void draw_texture(float x, float y, float w, float h, bool center = false)`
+    void draw_texture(
+     float x, float y, float w, float h,
+     bool center = false
+    )
 Draws current binded OpenGL texture on the screen. Takes its' position and sizes. If **center** is **true**, texture's center will be in given position.  
 
 ----
-##### `void draw_texture(float x, float y, float w, float h, float nw, float nh, float a = 0, bool c = false)`
-Draws current binded OpenGL texture resized to **nw** width and **nh** height and rotated to **a** degrees on the screen. Takes its' position and original sizes. If **c** is **true**, texture's center will be in given position.  
+    void draw_texture(
+     float x, float y, float w, float h,
+     float nw, float nh,
+     float angle = 0, bool center = false
+    )
+Draws current binded OpenGL texture resized to **nw** width and **nh** height and rotated to **angle** degrees on the screen. Takes its' position and original sizes. If **center** is **true**, texture's center will be in given position.  
 
 ----
-##### `void draw_texture(...)`
     void draw_texture(
      float W, float H,                          //whole texture width and height
      float px, float py, float pw, float ph,    //piece's position and size
@@ -127,7 +150,7 @@ Deletes file with given name and returns whether it was successful (**true**) or
 Writes **i** into **buf** in given numerical base **base**.
 
 ----
-#### `int atoi(const char* buf)`
+##### `int atoi(const char* buf)`
 Parses an integer in **buf** and returns it.
 
 ----
@@ -152,8 +175,14 @@ Returns whether strings **a** and **b** are equal or not. Considers lower-case a
 Returns a string that represents **n**. Thousands will be written as “K” (for example, 5000 will become "5K").  
 
 ----
-##### `stack<int> A_star(int fx, int fy, int tx, int ty, vector< vector<bool> >& obstacles, int u = 10, int d = 14)`
-Implements A* algorithm. Returns a **stack** of indeces that forms a path between **(fx, fy)** and **(tx, ty)**. If there is no way, returns an empty **stack**. **obstacles** should contain **true** if the point is impassable, **u** and **d** represent which moves are “cheaper” (horizontal and vertical cost **u** and diagonal cost **d**).  
+##### `stack<int> A_star(...)`
+   stack<int> A_star(
+    int start_x, int start_y,
+    int target_x, int target_y,
+    vector< vector<bool> >& obstacles,
+    int usual = 10, int diagonal = 14
+   )
+Implements A* algorithm. Returns a **stack** of indeces that forms a path between **(start_x, start_y)** and **(target_x, target_y)**. If there is no way, returns an empty **stack**. **obstacles** should contain **true** if the point is impassable, **usual** and **diagonal** represent which moves are “cheaper” (horizontal and vertical cost **usual** and diagonal cost **diagonal**).  
    
    
 **Previous file:** [wstream and safe_wstream classes](20_wstreams.md)  

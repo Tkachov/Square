@@ -83,7 +83,7 @@ If equals 1, current framerate will be drawn on application's surface.
 ##### `DEBUG_EXCEPTION_ON_UNALLOCATED_VARIABLE`
 If equals 1, accessing unallocated variable will stop the game.  
 Otherwise, pointer to unallocated variable will be 0.  
-(Look **[State::persistent()](09_State.md#void-persistentstring-first_key-string-second_key)** function.)  
+(Look **[State::persistent()](09_State.md#static-void-persistentstring-first_key-string-second_key)** function.)  
 
 ----
 ##### `DEBUG_LOG_WARNINGS`
@@ -97,7 +97,7 @@ If equals 1, sprite loading will be logged.
 ----
 ##### `DEBUG_LOG_IMAGE_LOADING`
 If equals 1, texture loading will be logged.  
-(Look **[Resources::load_texture()](09_Resources.md#image-load_texturestring-filename)** function.)  
+(Look **[Resources::load_texture()](07_Resources.md#image-load_texturestring-filename)** function.)  
 
 ----
 ##### `DEBUG_LOG_STRING_TABLES`

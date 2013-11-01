@@ -2,7 +2,7 @@
 
 ## Overview
 
-On Android there is “sandbox” where your application's files are storaged. Those files can not be read or modified using std::fstream. That's why Square introduces wstream and safe_wstream classes that can write to application's files. To read application's files you can use **[read_file()](21_utils_h.md)** functions.
+On Android there is “sandbox” where your application's files are storaged. Those files can not be read or modified using std::fstream. That's why Square introduces wstream and safe_wstream classes that can write to application's files. To read application's files you can use **[read_file()](21_utils_h.md#void-read_filestringstream-destination-const-char-name)** functions.
 
 These classes are something like simplified std::ofstream. safe_wstream flushes all data instantly (so if application will crash, file will contain everything that has to be written before the crash), though it can be a bit slower than using wstream (which does not guarantees that all the information will be written in case of crash).
 

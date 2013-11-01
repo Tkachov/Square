@@ -9,8 +9,14 @@ Almost all of it's functions are static, so you can call them whereever you want
 ## Functions  
 
 ----
-##### `static void create(const char* title, int x, int y, int w, int h, string fullscreen, int flags = 0)`
-The function that creates application's window with given parameters. It's automatically called when application is started or restarted. The actual parameters that are passed can differ — there are some default values in [settings.h](22_settings_h) that can be overriden by values from config file.  
+##### `static void create(...)`
+    static void create(
+     const char* title,
+     int x, int y, int w, int h,
+     string fullscreen,
+     int flags = 0
+    )
+The function that creates application's window with given parameters. It's automatically called when application is started or restarted. The actual parameters that are passed can differ — there are some default values in [settings.h](22_settings_h.md) that can be overriden by values from config file.  
 If you will use it manually, pass window's title as **title**, it's position as **x**, **y** and it's size as **w** and **h**. If you want to run application in [fullscreen mode](06_Main_Window.md#fullscreen-modes-in-square), use "1" for fs_FULLSCREEN_STRETCHED, "2" for fs_FULLSCREEN_WHOLE_SCREEN, "3" for fs_WINDOWED_STRETCHED or "4" for fs_WINDOWED_WHOLE_SCREEN mode. You can also pass some [SDL's window flags](http://wiki.libsdl.org/SDL_CreateWindow#Remarks) if you want.
 
 ----
@@ -62,7 +68,7 @@ Sets new fullscreen mode requesting the same projection size as it was before th
 It may change both viewport and projection sizes.  
 
 ----
-##### `static void set_fullscreen(Fullscreen_Mode fullscreen, int projection_width, int projection_height)`
+##### `static void set_fullscreen(Fullscreen_Mode fullscreen, int pr_width, int pr_height)`
 Sets new fullscreen mode requesting projection with size you've passed.  
 It may change both viewport and projection sizes.   
  
@@ -74,12 +80,12 @@ Sets new window's title.
 
 There are three fullscreen modes in SDL:
 * **0**, — windowed mode,
-* **SDL_WINDOW_FULLSCREEN**, — "fake" fullscreen,
-* **SDL_WINDOW_FULLSCREEN_DESKTOP**, — "real" fullscreen.
+* **SDL_WINDOW_FULLSCREEN**, — “fake” fullscreen,
+* **SDL_WINDOW_FULLSCREEN_DESKTOP**, — “real” fullscreen.
 
-In "fake" fullscreen mode SDL changes display's resolution to correspond your application's surface size (so it's stretched to a whole screen).
+In “fake” fullscreen mode SDL changes display's resolution to correspond your application's surface size (so it's stretched to a whole screen).
 
-In "real" fullscreen mode your application gets surface with a size of the display, so you can use more space.
+In “real” fullscreen mode your application gets surface with a size of the display, so you can use more space.
 
 ### Fullscreen_Mode
 
@@ -87,16 +93,16 @@ There is special enum for fullscreen modes in Square because of some problems wi
 
 It contains following values:
 * **fs_WINDOWED**, — windowed mode,
-* **fs_FULLSCREEN_STRETCHED**, — SDL's "fake" fullscreen mode (**SDL_WINDOW_FULLSCREEN**),
-* **fs_FULLSCREEN_WHOLE_SCREEN**, — SDL's "real" fullscreen mode (**SDL_WINDOW_FULLSCREEN_DESKTOP**),
-* **fs_WINDOWED_STRETCHED**, — "fake" fullscreen emulated,
-* **fs_WINDOWED_WHOLE_SCREEN**, — "real" fullscreen emulated.
+* **fs_FULLSCREEN_STRETCHED**, — SDL's “fake” fullscreen mode (**SDL_WINDOW_FULLSCREEN**),
+* **fs_FULLSCREEN_WHOLE_SCREEN**, — SDL's “real” fullscreen mode (**SDL_WINDOW_FULLSCREEN_DESKTOP**),
+* **fs_WINDOWED_STRETCHED**, — “fake” fullscreen emulated,
+* **fs_WINDOWED_WHOLE_SCREEN**, — “real” fullscreen emulated.
 
 First three of these are just using corresponding SDL's fullscreen modes and the other two are made for cases like Ubuntu. These modes are using borderless window with the size of the display, which looks exactly like fullscreen mode does. In **fs_WINDOWED_STRETCHED** mode surface is stretched to a whole screen.
 
 This enumeration is in Main_Window.h file.
 
-Note that Android applications are always using whole display, so Square automatically changes **fs_WINDOWED** and **fs_FULLSCREEN_STRETCHED** modes into **fs_WINDOWED_STRETCHED**.
+Note that Android applications are always using whole display, so Square automatically changes **fs_WINDOWED** and **fs_FULLSCREEN_STRETCHED** modes to **fs_WINDOWED_STRETCHED**.
    
    
 **Previous file:** [Controller class](05_Controller.md)  

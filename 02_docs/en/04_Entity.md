@@ -16,7 +16,7 @@ Following functions may be overriden in Entity class:
 
 ##### `void redraw(int x, int y)`
 When this function is called, the Entity should draw itself in given position (it can ignore these coordinates though).  
-Entity class' **redraw()** calls virtual **[draw_before_queue()](04_Entity.md#void-draw_before_queueint-x-int-y)**, then redraws all its' “children” Entities and calls virtual **[draw_after_queue()](04_Entity.md#void-draw_after_queueint-x-int-y)**. That's why you should override one of those (or both) if you don't need something more complicated.  
+Entity class' **redraw()** calls virtual **[redraw_before_queue()](04_Entity.md#void-redraw_before_queueint-x-int-y)**, then redraws all its' “children” Entities and calls virtual **[redraw_after_queue()](04_Entity.md#void-redraw_after_queueint-x-int-y)**. That's why you should override one of those (or both) if you don't need something more complicated.  
 
 ----
 ##### `void update(int x, int y)`
@@ -25,19 +25,19 @@ Entity class' **redraw()** calls virtual **[update_before_queue()](04_Entity.md#
 
 ----
 ##### `void redraw_before_queue(int x, int y)`
-This function is called by the Entity itself before its' “children” Entities are drawn. Given position is the same that was passed to **[redraw()](04_Entity.md#void-redraw)**.
+This function is called by the Entity itself before its' “children” Entities are drawn. Given position is the same that was passed to **[redraw()](04_Entity.md#void-redrawint-x-int-y)**.
 
 ----
 ##### `void redraw_after_queue(int x, int y)`
-This function is called by the Entity itself after its' “children” Entities are drawn. Given position is the same that was passed to **[redraw()](04_Entity.md#void-redraw)**.
+This function is called by the Entity itself after its' “children” Entities are drawn. Given position is the same that was passed to **[redraw()](04_Entity.md#void-redrawint-x-int-y)**.
 
 ----
 ##### `void update_before_queue(int x, int y)`
-This function is called by the Entity itself before its' “children” Entities are updated. Given position is the same that was passed to **[update()](04_Entity.md#void-redraw)**.
+This function is called by the Entity itself before its' “children” Entities are updated. Given position is the same that was passed to **[update()](04_Entity.md#void-updateint-x-int-y)**.
 
 ----
 ##### `void update_after_queue(int x, int y)`
-This function is called by the Entity itself after its' “children” Entities are updated. Given position is the same that was passed to **[update()](04_Entity.md#void-redraw)**.
+This function is called by the Entity itself after its' “children” Entities are updated. Given position is the same that was passed to **[update()](04_Entity.md#void-updateint-x-int-y)**.
 
 ## Entity class' functions
 

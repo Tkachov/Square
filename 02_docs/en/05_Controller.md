@@ -6,7 +6,6 @@ Controller class is responsible for some general actions. The pointer to the obj
 
 ## Functions  
 
-----
 ##### `void stop_loop()`
 Stops the application loop.  
 
@@ -28,11 +27,11 @@ This function works only if you have added your Screen-deriving class in **[crea
 
 ----
 ##### `void save(string filename)`
-Saves current application state in file with name **filename** in the subfolder "saves".  
+Saves current application state in file with name **filename** in the subfolder “saves”.  
 
 ----
 ##### `void load(string filename)`
-Loads application state from file with name **filename** from the subfolder "saves".  
+Loads application state from file with name **filename** from the subfolder “saves”.  
  
 ----
 ##### `string get_option(string key)`
@@ -44,7 +43,7 @@ Replaces value of option with name **key** with **value**.
 
 ----
 ##### `void save_options()`
-Saves options in **[CONFIG_FILENAME](22_settings_h.md#CONFIG_FILENAME)** file if such constant is defined.  
+Saves options in **[CONFIG_FILENAME](22_settings_h.md#config_filename)** file if such constant is defined.  
    
    
 **Previous file:** [Entity class](04_Entity.md)  

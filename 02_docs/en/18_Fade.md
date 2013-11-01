@@ -11,11 +11,25 @@ There are **Fade_Mode** enum, which has the following values:
 
 ## Functions  
 
-##### `Fade(Controller* controller, Fade_Mode mode, int length, SDL_Color color, int width, int height, functor* f = 0, int x = 0, int y = 0, int priority = 0)`
-Constructor, creates new Fade with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **width**x**height** rectangle of color **color**.  
+##### `Fade(...)`
+    Fade(
+     Controller* controller,
+     Fade_Mode mode, int length,
+     SDL_Color color, int width, int height,
+     functor* f = 0,
+     int x = 0, int y = 0, int priority = 0
+    )
+Constructor, creates new Fade with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **width*****height** rectangle of color **color**.  
 
 ----
-##### `Fade(Controller* controller, Fade_Mode mode, int length, Sprite* image, functor* f = 0, int x = 0, int y = 0, int priority = 0)`
+##### `Fade(...)`
+    Fade(
+     Controller* controller,
+     Fade_Mode mode, int length,
+     Sprite* image,
+     functor* f = 0,
+     int x = 0, int y = 0, int priority = 0
+    )
 Constructor, creates new Fade_Effect with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **image**.  
 
 ----
