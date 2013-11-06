@@ -12,7 +12,7 @@ Square's now cross-platform. You can use the same C++ source code to build appli
 
 Also, Square now uses [zlib license](http://gzip.org/zlib/zlib_license.html) — you can freely use it for any purpose though you must not claim that you wrote the original software.
 
-Please note that there is no Russian documentation and examples for 0.3.0 version in repository yet.
+Please note that there is no examples for 0.3.0 version in repository yet.
 
 ## API changing (08/24/13)
 

@@ -13,7 +13,7 @@
 
 ----
 ##### `Sprite load_sprite(string filename)`
-Загружает файл с указанным именем, создаёт объект [Sprite](15_Sprite.md), соответствующий спрайту, [описанному в этом файле](07_Resources.md#sprite-file-structure), и возвращает этот объект. Все кадры загружаются функцией **[load_texture()](07_Resources.md#frame-load_texturestring-filename)**.  
+Загружает файл с указанным именем, создаёт объект [Sprite](15_Sprite.md), соответствующий спрайту, [описанному в этом файле](07_Resources.md#%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-sprite), и возвращает этот объект. Все кадры загружаются функцией **[load_texture()](07_Resources.md#frame-load_texturestring-filename)**.  
 Если **[DEBUG_LOG_SPRITE_LOADING](22_settings_h.md#debug_log_sprite_loading)** равна 1, пишет сообщения в лог. 
 
 ----

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Frame class is used by engine to storage textures and information about it. Objects of this class are used by [Sprite](15_Sprite.md) class. You can construct and use it manually if you want. Frames are returned by [Resources::load_texture()](07_Resources.md#frame-load_texturestring-filename) function and can be drawn on the display with [draw_frame()](21_utils_h.md#void-draw_frame) functions.
+Frame class is used by engine to storage textures and information about it. Objects of this class are used by [Sprite](15_Sprite.md) class. You can construct and use it manually if you want. Frames are returned by **[Resources::load_texture()](07_Resources.md#frame-load_texturestring-filename)** function and can be drawn on the display with **[draw_frame()](21_utils_h.md#void-draw_frame)** functions.
 
 ## Functions  
 
