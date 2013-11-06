@@ -4,7 +4,7 @@ Square is a simple system which is based on SDL2 and OpenGL libraries.
 It manages resources loading and input and gives you simple classes that can be used in the application.
 There are two general components: Screens and Entities. Screens are containers for Entities. Entities are everything that can be drawn or interacted with. You can switch from one Screen to another. So, menus and levels are Screens and buttons and characters are Entities. All you have to do is to implement necessary Entities and put them in necessary Screens.
 
-[Go to documentation](02_docs/en/00_Contents.md).  
+[Go to documentation](02_docs/en/00_Contents.md) ([Russian](02_docs/ru/00_Contents.md) available.)  
 
 ## Ubuntu and Android support (10/31/13)
 
@@ -33,9 +33,10 @@ These folders can be found in repository:
 * 00_engine, — contains source code and template projects.
     + 00_template, — Windows and Ubuntu template project,
     + 01_android_project, — Android project folder.
-* 01_examples, — will contain example applications.
+* 01_examples, — *will* contain example applications.
 * 02_docs, — contains Square documentation.
-    + en, — English documentation in Markdown format.    
+    + en, — English documentation in Markdown format,
+    + ru, — Russian documentation in Markdown format.    
 
 ## Libraries' versions
 

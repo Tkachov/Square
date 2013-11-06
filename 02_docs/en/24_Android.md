@@ -6,9 +6,9 @@ Square is using virgin official SDL 2 port code, but Square template project for
 
 ## Creating the project
 
-1. Copy *02_android_project* directory and rename it as you wish.
+1. Copy *01_android_project* directory and rename it as you wish.
 2. Copy SDL's directories into *<project>/jni* directory.
-3. Copy *src* directory from *01_template* directory into the *<project>/jni* directory.
+3. Copy *src* directory from *00_template* directory into the *<project>/jni* directory.
 4. Edit *<project>/jni/src/Android.mk* to include your source files.
 5. Copy all application's resources into *<project>/assets* directory.
 

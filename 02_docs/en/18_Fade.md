@@ -30,7 +30,7 @@ Constructor, creates new Fade with given **mode** that will last **length** fram
      functor* f = 0,
      int x = 0, int y = 0, int priority = 0
     )
-Constructor, creates new Fade_Effect with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **image**.  
+Constructor, creates new Fade with given **mode** that will last **length** frames and call **f** after fade effect is complete. It also gets position and **priority** and will draw **image**.  
 
 ----
 ##### `void redraw(int x, int y)` [inherited from [Entity](04_Entity.md#void-redrawint-x-int-y)]
