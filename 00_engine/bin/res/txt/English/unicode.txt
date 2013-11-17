@@ -1,4 +1,0 @@
-﻿
-//unnecessary symbols charcodes
-8470 = №
-

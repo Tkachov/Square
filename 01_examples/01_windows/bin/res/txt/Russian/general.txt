@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 //    COMMON
 //
 OK		=	ОК
@@ -7,12 +8,13 @@ Yes		=	Да
 No		=	Нет
 
 //
-//    SCREEN
+//    MAIN MENU
 //
 
 new_window	=	Открыть окно
-exit_game	=	Выйти
-window_caption	=	Заголовок окна
+exit_game	=	Выйти из игры
+
+window_caption	=	Заголовок
 
 
 

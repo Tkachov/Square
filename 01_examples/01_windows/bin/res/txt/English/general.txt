@@ -7,9 +7,10 @@ Yes		=	Yes
 No		=	No
 
 //
-//    SCREEN
+//    MAIN MENU
 //
 
-new_window	=	Open a new window
-exit_game	=	Exit
-window_caption	=	Window's caption
+new_window	=	Open window
+exit_game	=	Leave game
+
+window_caption	=	Caption
