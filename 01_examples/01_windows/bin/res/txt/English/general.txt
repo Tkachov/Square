@@ -1,0 +1,16 @@
+﻿//
+//    COMMON
+//
+OK		=	OK
+Cancel		=	Cancel
+Yes		=	Yes
+No		=	No
+
+//
+//    MAIN MENU
+//
+
+new_window	=	Open window
+exit_game	=	Leave game
+
+window_caption	=	Caption

@@ -12,8 +12,6 @@ Square's now cross-platform. You can use the same C++ source code to build appli
 
 Also, Square now uses [zlib license](http://gzip.org/zlib/zlib_license.html) — you can freely use it for any purpose though you must not claim that you wrote the original software.
 
-Please note that there is no examples for 0.3.0 version in repository yet.
-
 ## API changing (08/24/13)
 
 Square's API is not stable yet and can change dramatically from one version to another.  
@@ -33,7 +31,8 @@ These folders can be found in repository:
 * 00_engine, — contains source code and template projects.
     + 00_template, — Windows and Ubuntu template project,
     + 01_android_project, — Android project folder.
-* 01_examples, — *will* contain example applications.
+* 01_examples, — contains example application.
+	+ 01_windows, — example of child popup windows.
 * 02_docs, — contains Square documentation.
     + en, — English documentation in Markdown format,
     + ru, — Russian documentation in Markdown format.    

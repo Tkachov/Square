@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Square Engine Template" />
+		<Option title="Windows Example" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -104,6 +104,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="screens/Index_Screen.cpp" />
 		<Unit filename="screens/Index_Screen.h" />
+		<Unit filename="objects/Popup_Window.cpp" />
+		<Unit filename="objects/Popup_Window.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
